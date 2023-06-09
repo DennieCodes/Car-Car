@@ -26,15 +26,15 @@ def mocked_requests_get(*args, **kwargs):
         def json(self):
             return self.json_data
 
-    if args[0] == 'http://project-beta-inventory-api-1:8000/api/automobiles':
+    if args[0] == 'http://project-beta-inventory-api-1:8000/api/automobiles/':
         data = {
             "autos": [
-                {"href": "/api/automobiles/1/","vin": "1", "sold": True},
-                {"href": "/api/automobiles/2/","vin": "2", "sold": True},
-                {"href": "/api/automobiles/3/","vin": "3", "sold": True},
+                {"href": "/api/automobiles/1/", "vin": "1", "sold": True},
+                {"href": "/api/automobiles/2/", "vin": "2", "sold": True},
+                {"href": "/api/automobiles/3/", "vin": "3", "sold": True},
             ]
         }
-        return MockResponse(data, json.dumps(data),200)
+        return MockResponse(data, json.dumps(data), 200)
 
     return MockResponse(None, "", 404)
 

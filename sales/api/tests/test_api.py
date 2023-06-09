@@ -1,9 +1,11 @@
 import json
-from sales_rest.models import Salesperson, Customer, Sale, AutomobileVO
-from django.test import TransactionTestCase, Client
+
+from django.test import Client, TransactionTestCase
+from sales_rest.models import AutomobileVO, Customer, Sale, Salesperson
+
 
 class Tests(TransactionTestCase):
-    ####SALESPEOPLE ENDPOINTS
+    # SALESPEOPLE ENDPOINTS
     def test_sales_people_list(self):
         Salesperson.objects.create(first_name="first", last_name="last", employee_id=1111)
 
@@ -28,13 +30,13 @@ class Tests(TransactionTestCase):
         self.assertEqual(response.status_code, 200, msg="Did not get a 200 OK for the path projects/")
 
     def test_sales_people_delete(self):
-        Salesperson.objects.create(first_name="first", last_name="last", employee_id=1)
+        salesperson = Salesperson.objects.create(first_name="first", last_name="last", employee_id=1)
 
         client = Client()
-        response = client.delete("/api/salespeople/1/")
+        response = client.delete(f"/api/salespeople/{salesperson.id}/")
         self.assertEqual(response.status_code, 200, msg="Did not get a 200 OK for salespeople delete.")
 
-        response = client.delete("/api/salespeople/1/")
+        response = client.delete(f"/api/salespeople/1/{salesperson.id}/")
         self.assertEqual(response.status_code, 404, msg="Did not get a 404 OK salespeople delete of an unknown id.")
 
     ####CUSTOMER ENDPOINTS
@@ -72,7 +74,7 @@ class Tests(TransactionTestCase):
         response = client.delete(f"/api/customers/{customer.id}/")
         self.assertEqual(response.status_code, 404, msg="Did not get a 404 OK customer delete of an unknown id.")
 
-    ####SALES ENDPOINTS
+    # SALES ENDPOINTS
     def test_sales_list(self):
         salesperson = Salesperson.objects.create(first_name="first", last_name="last", employee_id=1)
         customer = Customer.objects.create(first_name="first", last_name="last", address="111 1st Street", phone_number="111-111 1111")

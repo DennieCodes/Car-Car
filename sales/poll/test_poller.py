@@ -1,13 +1,12 @@
+import json
+import os
+import sys
+import time
 import unittest
 from unittest import mock
 
 import django
-import os
-import sys
-import time
-import json
 import requests
-
 from poller import poll
 
 sys.path.append("")
@@ -15,6 +14,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sales_project.settings")
 django.setup()
 
 from sales_rest.models import AutomobileVO
+
 
 # This method will be used by the mock to replace requests.get
 def mocked_requests_get(*args, **kwargs):
@@ -27,15 +27,15 @@ def mocked_requests_get(*args, **kwargs):
         def json(self):
             return self.json_data
 
-    if args[0] == 'http://project-beta-inventory-api-1:8000/api/automobiles':
+    if args[0] == 'http://project-beta-inventory-api-1:8000/api/automobiles/':
         data = {
             "autos": [
-                {"href": "/api/automobiles/1/","vin": "1", "sold": True},
-                {"href": "/api/automobiles/2/","vin": "2", "sold": True},
-                {"href": "/api/automobiles/3/","vin": "3", "sold": True},
+                {"href": "/api/automobiles/1/", "vin": "1", "sold": True},
+                {"href": "/api/automobiles/2/", "vin": "2", "sold": True},
+                {"href": "/api/automobiles/3/", "vin": "3", "sold": True},
             ]
         }
-        return MockResponse(data, json.dumps(data),200)
+        return MockResponse(data, json.dumps(data), 200)
 
     return MockResponse(None, "", 404)
 
