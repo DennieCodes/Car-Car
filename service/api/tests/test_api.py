@@ -1,12 +1,12 @@
 import json
-from service_rest.models import Technician, Appointment, AutomobileVO
+from service_rest.models import Technician, Appointment
 from django.test import TransactionTestCase, Client
 
 
 class Tests(TransactionTestCase):
 
     # ###TECHNICIANS ENDPOINTS
-    def test_sales_people_list(self):
+    def test_technicians_list(self):
         Technician.objects.create(first_name="first", last_name="last", employee_id=1111)
 
         client = Client()
@@ -17,7 +17,7 @@ class Tests(TransactionTestCase):
         self.assertTrue('technicians' in data, msg="Did not give response with salespeople field.")
         self.assertEqual(len(data['technicians']), 1, msg="Did not return correct number of salespeople.")
 
-    def test_sales_people_create(self):
+    def test_technician_create(self):
         client = Client()
         body = {
             "first_name": "first",
@@ -29,14 +29,14 @@ class Tests(TransactionTestCase):
 
         self.assertEqual(response.status_code, 200, msg="Did not get a 200 OK for the path projects/")
 
-    def test_sales_people_delete(self):
+    def test_technician_delete(self):
         Technician.objects.create(first_name="first", last_name="last", employee_id=1)
 
         client = Client()
-        response = client.delete("/api/technicians/1")
+        response = client.delete(f"/api/technicians/{technician.id}/")
         self.assertEqual(response.status_code, 200, msg="Did not get a 200 OK for technicians delete.")
 
-        response = client.delete("/api/technicians/1/")
+        response = client.delete(f"/api/technicians/{technician.id}/")
         self.assertTrue(response.status_code == 404 or response.status_code == 400, msg="Did not get a 404 OK technicians delete of an unknown id.")
 
     ####APPOINTMENT ENDPOINTS
@@ -57,11 +57,11 @@ class Tests(TransactionTestCase):
 
         client = Client()
         body = {
-            "date_time":"2023-04-20T14:39:00.000Z",
-            "reason":"broken glass. everywhere.",
-            "vin":"2222",
-            "customer":"Warren Longmire",
-            "technician":"1"
+            "date_time": "2023-04-20T14:39:00.000Z",
+            "reason": "broken glass. everywhere.",
+            "vin": "2222",
+            "customer": "Warren Longmire",
+            "technician": f"{tech.id}",
         }
 
         response = client.post("/api/appointments/", json.dumps(body), content_type='application/json')
@@ -76,10 +76,10 @@ class Tests(TransactionTestCase):
         appointment = Appointment.objects.create(date_time="2023-04-20T14:39:00.000Z", reason="reason code 1", vin="2222", customer="Warren Longmire", technician=tech)
 
         client = Client()
-        response = client.delete(f"/api/appointments/{appointment.id}")
+        response = client.delete(f"/api/appointments/{appointment.id}/")
         self.assertEqual(response.status_code, 200, msg="Did not get a 200 OK for appointment delete.")
 
-        response = client.delete(f"/api/appointments/{appointment.id}")
+        response = client.delete(f"/api/appointments/{appointment.id}/")
         self.assertTrue(response.status_code == 404 or response.status_code == 400, msg="Did not get a 400 delete an unknown appointment.")
 
     def test_appointment_cancel(self):
@@ -87,7 +87,7 @@ class Tests(TransactionTestCase):
         appointment = Appointment.objects.create(date_time="2023-04-20T14:39:00.000Z", reason="reason code 1", vin="2222", customer="Warren Longmire", technician=tech)
 
         client = Client()
-        response = client.put(f"/api/appointments/{appointment.id}/cancel")
+        response = client.put(f"/api/appointments/{appointment.id}/cancel/")
         self.assertEqual(response.status_code, 200, msg="Did not get a 200 OK for appointment PUT.")
         self.assertEqual(response.json()["status"], "canceled", msg="Did not get change status to canceled.")
 
@@ -96,6 +96,6 @@ class Tests(TransactionTestCase):
         appointment = Appointment.objects.create(date_time="2023-04-20T14:39:00.000Z", reason="reason code 1", vin="2222", customer="Warren Longmire", technician=tech)
 
         client = Client()
-        response = client.put(f"/api/appointments/{appointment.id}/finish")
+        response = client.put(f"/api/appointments/{appointment.id}/finish/")
         self.assertEqual(response.status_code, 200, msg="Did not get a 200 OK for appointment PUT.")
         self.assertEqual(response.json()["status"], "finished", msg="Did not get change status to finished.")
