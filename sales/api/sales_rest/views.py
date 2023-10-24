@@ -51,3 +51,9 @@ def list_customer(request):
       encoder=CustomerListEncoder,
       safe=False
     )
+
+# Delete a customer
+@require_http_methods(["DELETE"])
+def show_customer(request, pk):
+  count, _ = Customer.objects.filter(id=pk).delete()
+  return JsonResponse({"deleted": count > 0})
