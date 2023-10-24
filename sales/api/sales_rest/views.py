@@ -1,5 +1,5 @@
 import json
-from .encoders import SalespeopleListEncoder
+from .encoders import SalespeopleListEncoder, CustomerListEncoder
 from .models import AutomobileVO, Salesperson, Customer, Sale
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
@@ -22,5 +22,17 @@ def list_salespeople(request):
     return JsonResponse(
       salesperson,
       encoder=SalespeopleListEncoder,
+      safe=False
+    )
+
+# List_Customer
+@require_http_methods(["GET", "POST"])
+def list_customer(request):
+  if request.method == "GET":
+    customer = Customer.objects.all()
+
+    return JsonResponse(
+      { "customer": customer},
+      encoder=CustomerListEncoder,
       safe=False
     )
