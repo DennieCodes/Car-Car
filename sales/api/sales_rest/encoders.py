@@ -3,8 +3,8 @@ from .models import AutomobileVO, Salesperson, Customer, Sale
 
 class SalespeopleListEncoder(ModelEncoder):
   model = Salesperson
-  properties = ["first_name", "last_name", "employee_id"]
+  properties = ["first_name", "last_name", "employee_id", "id"]
 
 class CustomerListEncoder(ModelEncoder):
   model = Customer
-  properties = ["first_name", "last_name", "address", "phone_number"]
+  properties = ["first_name", "last_name", "address", "phone_number", "id"]

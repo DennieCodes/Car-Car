@@ -4,7 +4,7 @@ from .models import AutomobileVO, Salesperson, Customer, Sale
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 
-# List_Salespeople
+# List Salespeople and create a salesperson
 @require_http_methods(["GET", "POST"])
 def list_salespeople(request):
   if request.method == "GET":
@@ -25,7 +25,13 @@ def list_salespeople(request):
       safe=False
     )
 
-# List_Customer
+# Delete a salesperson
+@require_http_methods(["DELETE"])
+def show_salespeople(request, pk):
+  count, _ = Salesperson.objects.filter(id=pk).delete()
+  return JsonResponse({"deleted": count > 0})
+
+# List Customer and create a customer
 @require_http_methods(["GET", "POST"])
 def list_customer(request):
   if request.method == "GET":
