@@ -36,3 +36,12 @@ def list_customer(request):
       encoder=CustomerListEncoder,
       safe=False
     )
+  else:
+    content = json.loads(request.body)
+
+    customer = Customer.objects.create(**content)
+    return JsonResponse(
+      customer,
+      encoder=CustomerListEncoder,
+      safe=False
+    )
