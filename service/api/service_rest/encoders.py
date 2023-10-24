@@ -3,13 +3,12 @@ from .models import Technician
 # from common.json import DateEncoder
 
 
-
 class TechnicianEncoder(ModelEncoder):
     model = Technician
     properties = [
-        "id",
-        "name",
-        "employee_number",
+        "first_name",
+        "last_name",
+        "employee_id",
     ]
 
 
