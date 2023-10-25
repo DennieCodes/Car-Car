@@ -32,7 +32,7 @@ class Customer(models.Model):
         return reverse("show_customer", kwargs={"pk": self.pk})
 
 class Sale(models.Model):
-  price = models.DecimalField(max_digits=10, decimal_places=2)
+  price = models.PositiveIntegerField()
 
   automobile = models.ForeignKey(
     AutomobileVO,

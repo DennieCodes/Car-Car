@@ -5,6 +5,7 @@ from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 
 # Salespeople view methods
+########################################
 # List and Create salespeople
 @require_http_methods(["GET", "POST"])
 def list_salespeople(request):
@@ -26,7 +27,14 @@ def list_salespeople(request):
       safe=False
     )
 
+# Delete a salesperson
+@require_http_methods(["DELETE"])
+def show_salespeople(request, pk):
+  count, _ = Salesperson.objects.filter(id=pk).delete()
+  return JsonResponse({"deleted": count > 0})
+
 # Sales view methods
+########################################
 # List and create sales
 @require_http_methods(["GET", "POST"])
 def list_sales(request):
@@ -77,13 +85,17 @@ def list_sales(request):
       safe=False
     )
 
-# Delete a salesperson
+# Show Sale view method: Delete
 @require_http_methods(["DELETE"])
-def show_salespeople(request, pk):
-  count, _ = Salesperson.objects.filter(id=pk).delete()
-  return JsonResponse({"deleted": count > 0})
+def show_sale(request, pk):
+  if request.method == "DELETE":
+    count, _ = Sale.objects.filter(id=pk).delete()
+    return JsonResponse(
+      { "deleted": count > 0 }
+    )
 
 # Customer view methods
+########################################
 # List Customer and create a customer
 @require_http_methods(["GET", "POST"])
 def list_customer(request):
@@ -105,8 +117,11 @@ def list_customer(request):
       safe=False
     )
 
-# Delete a customer
+# Show customer view method: Delete a customer
 @require_http_methods(["DELETE"])
 def show_customer(request, pk):
-  count, _ = Customer.objects.filter(id=pk).delete()
-  return JsonResponse({"deleted": count > 0})
+  if request.method == "DELETE":
+    count, _ = Customer.objects.filter(id=pk).delete()
+    return JsonResponse(
+      { "deleted": count > 0 }
+    )
