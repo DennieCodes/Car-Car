@@ -16,17 +16,28 @@ class Technician(models.Model):
 #whether they purchased the car from them, status of the repairs, and the tehnician who worked on it.Technician is 
 #the only foreign key
 
+class AutomobileVO(models.Model):
+    vin = models.CharField(max_length=17, unique=True)
+    sold = models.BooleanField(default=False)
+    import_href = models.CharField(max_length=200, blank=True, null=True, unique=True)
+    color = models.CharField(max_length=50)
+    year = models.PositiveSmallIntegerField()
+
+    def __str__(self):
+        return "Auto Vin -" + self.vin
+    
 
 class Appointment(models.Model):
     date_time = models.DateTimeField(max_length=17) 
     vin = models.CharField(max_length=17)
-    customer_name = models.CharField(max_length=20)
+    customer = models.CharField(max_length=20)
     reason = models.CharField(max_length=100)
     dealership_purchase = models.BooleanField(default=False)
     status = models.CharField(max_length=100)
     technician = models.ForeignKey(
         Technician, related_name="Appointment", on_delete=models.CASCADE
     )
+
 
     # def __str__(self):
     #     return self.customer_name
@@ -44,15 +55,7 @@ class Appointment(models.Model):
 #model for the cars in the dealership and whether they are sold are not.
 
 
-class AutomobileVO(models.Model):
-    vin = models.CharField(max_length=17, unique=True)
-    sold = models.BooleanField(default=False)
-    import_href = models.CharField(max_length=200, blank=True, null=True, unique=True)
-    color = models.CharField(max_length=50)
-    year = models.PositiveSmallIntegerField()
 
-    def __str__(self):
-        return "Auto Vin -" + self.vin
 
     # def get_api_url(self):
     #     return reverse("api_show_location", kwargs={"pk": self.pk})

@@ -9,9 +9,9 @@ from .models import Technician, Appointment, AutomobileVO
 @require_http_methods(["GET", "POST"])
 def api_Technician_list(request):
     if request.method == "GET":
-        technician = Technician.objects.all()
+        technicians = Technician.objects.all()
         return JsonResponse(
-            {"technician": technician},
+            {"technicians": technicians},
             encoder=TechnicianEncoder,
             safe=False,
         )
@@ -50,13 +50,11 @@ def api_Technician_detail(request, pk):
         try:
             technician = Technician.objects.get(id=pk)
             technician.delete()
-            return JsonResponse(
-                technician,
-                encoder=TechnicianEncoder,
-                safe=False,
-            )
+            return JsonResponse({"message": "Auto technician has been deleted"}, status = 200)
+
         except Technician.DoesNotExist:
-            return JsonResponse({"message": "Auto technician has been deleted"})
+
+            return JsonResponse({"message": "Auto technician does not exist"}, status = 404)
     else:  # "PUT"
         try:
             content = json.loads(request.body)
@@ -91,29 +89,32 @@ def api_Appointments_list(request):
     else:
         content = json.loads(request.body)
         try:
-            technician = {"technician": Technician.objects.get(id=content["technician"])}
-            content.update(technician)
-
+            technician = Technician.objects.get(employee_id=content["technician"])
+            content["technician"] = technician
             inventory = AutomobileVO.objects.all().values_list('vin', flat=True)
             if content["vin"] in inventory:
                 content["dealership_purchase"] = True
-            
+            print(inventory, "this is my test")
             appointments = Appointment.objects.create(**content)
             return JsonResponse(
                 appointments,
                 encoder=AppointmentEncoder,
                 safe=False,
             )
- 
-        except Appointment.DoesNotExist:
-            response = JsonResponse (
-                { "message": "Could not create this Service appointment"}
+        except Technician.DoesNotExist:
+            return JsonResponse(
+                {"message": "Technicican does not exist"},
+                 status = 404
                 )
-            response.status_code = 400
-            return response
+        except Appointment.DoesNotExist:
+            return JsonResponse(
+                {"message": "Could not create this Service appointment"},
+                 status = 404
+                )
+           
 
 
-@require_http_methods(["GET","PUT","DELETE"])
+@require_http_methods(["GET", "PUT", "DELETE"])
 def api_Appointment_detail(request, pk):
     if request.method == "GET":
         try:
@@ -137,8 +138,38 @@ def api_Appointment_detail(request, pk):
         except Appointment.DoesNotExist:
             return JsonResponse({
                 "message": "Service appointment has been deleted"
+            }, status = 404)
+    else:
+        try:
+            Appointment.objects.filter(id=pk).update(status="finished")
+            appointments = Appointment.objects.get(id=pk)
+            print(appointments)
+       
+    
+        except Appointment.DoesNotExist:
+            return JsonResponse({
+                "message": "Appointment does not exist"
             })
-            
+        return JsonResponse(
+                    appointments, AppointmentEncoder, safe=False
+                    )
+
+
+@require_http_methods(["PUT"])
+def api_Appointment_status(request,pk):
+    if request.method == "PUT":
+        try:
+            Appointment.objects.filter(id=pk).update(status = "canceled")
+            appointments = Appointment.objects.get(id=pk)
+        except Appointment.DoesNotExist:
+            return JsonResponse({
+                "message": "Appointment does not exist"
+            })
+        
+        return JsonResponse(
+            appointments, AppointmentEncoder, safe=False
+         )
+               
 
 @require_http_methods(["GET"])
 def api_AutomobileVO_list(request):

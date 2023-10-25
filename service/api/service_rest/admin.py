@@ -10,7 +10,7 @@ class TechnicianAdmin(admin.ModelAdmin):
         "first_name",
         "last_name",
         "employee_id",
-        "id" 
+        "id"
     )
 
 @admin.register(Appointment)
@@ -18,7 +18,7 @@ class ApppointmentAdmin(admin.ModelAdmin):
     list_display = (
         "date_time",
         "vin", 
-        "customer_name",
+        "customer",
         "reason", 
         "dealership_purchase",
         "status",
