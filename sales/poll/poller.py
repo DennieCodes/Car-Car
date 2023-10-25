@@ -21,11 +21,9 @@ def poll(repeat=True):
 
             for auto in content["autos"]:
                 AutomobileVO.objects.update_or_create(
-                    import_href=auto['href'],
+                    vin=auto['vin'],
                     defaults={
-                        "vin": auto['vin'],
                         "sold": auto['sold'],
-                        # "year": auto['year']
                     }
                 )
 

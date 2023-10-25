@@ -141,7 +141,7 @@ def show_sale(request, pk):
 
       return JsonResponse(
             {"message": "Sale was successfully deleted"},
-            status=404,
+            status=200,
         )
     except Sale.DoesNotExist:
       return JsonResponse(

@@ -3,14 +3,14 @@ from django.urls import reverse
 
 # Automobile
 class AutomobileVO(models.Model):
-  # import_href = models.CharField(max_length=200, unique=True)
-  # color = models.CharField(max_length=50)
   vin = models.CharField(max_length=50, unique=True)
   sold = models.BooleanField(default=False)
-  # year = models.PositiveSmallIntegerField(null=False, default=2023)
 
   def __str__(self):
     return self.vin
+
+  def get_api_url(self):
+        return reverse("show_automobile", kwargs={"pk": self.pk})
 
 # Salesperson
 class Salesperson(models.Model):
