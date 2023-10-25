@@ -2,9 +2,14 @@ from django.db import models
 from django.urls import reverse
 
 class AutomobileVO(models.Model):
-  import_href = models.CharField(max_length=150, unique=True)
-  vin = models.CharField(max_length=50)
-  sold = models.CharField(max_length=50)
+  import_href = models.CharField(max_length=200, unique=True)
+  color = models.CharField(max_length=50)
+  vin = models.CharField(max_length=50, unique=True)
+  sold = models.BooleanField(default=False)
+  year = models.PositiveSmallIntegerField()
+
+  def __str__(self):
+    return self.vin
 
 class Salesperson(models.Model):
   first_name = models.CharField(max_length=50)
@@ -21,19 +26,23 @@ class Customer(models.Model):
   phone_number = models.CharField(max_length=50)
 
   def ___str__(self):
-    return self.first_name
+    return f"{self.first_name} {self.last_name}"
+
+  def get_api_url(self):
+        return reverse("show_customer", kwargs={"pk": self.pk})
 
 class Sale(models.Model):
   price = models.DecimalField(max_digits=10, decimal_places=2)
+
   automobile = models.ForeignKey(
     AutomobileVO,
-    related_name="sales",
+    related_name="sale",
     on_delete=models.CASCADE
   )
 
   salesperson = models.ForeignKey(
     Salesperson,
-    related_name="sales",
+    related_name="sale",
     on_delete=models.CASCADE
   )
 
@@ -44,4 +53,4 @@ class Sale(models.Model):
   )
 
   def __str__(self):
-    return self.automobile
+    return f"{self.salesperson.first_name} {self.salesperson.last_name}"

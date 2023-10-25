@@ -1,10 +1,11 @@
 import json
-from .encoders import SalespeopleListEncoder, CustomerListEncoder
+from .encoders import SalespeopleListEncoder, CustomerListEncoder, SaleListEncoder
 from .models import AutomobileVO, Salesperson, Customer, Sale
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
 
-# List Salespeople and create a salesperson
+# Salespeople view methods
+# List and Create salespeople
 @require_http_methods(["GET", "POST"])
 def list_salespeople(request):
   if request.method == "GET":
@@ -25,12 +26,64 @@ def list_salespeople(request):
       safe=False
     )
 
+# Sales view methods
+# List and create sales
+@require_http_methods(["GET", "POST"])
+def list_sales(request):
+  if request.method == "GET":
+    sales = Sale.objects.all()
+
+    return JsonResponse(
+      { "sales": sales},
+      encoder=SaleListEncoder,
+      safe=False
+    )
+  else:
+    content = json.loads(request.body)
+
+    # You have to get the corresponding Object from Vehicles for content["automobile"]
+    try:
+      auto = AutomobileVO.objects.get(vin=content["automobile"])
+      content["automobile"] = auto
+
+      salesperson = Salesperson.objects.get(employee_id=content["salesperson"])
+      content["salesperson"] = salesperson
+
+      customer = Customer.objects.get(id=content["customer"])
+      content["customer"] = customer
+
+    except AutomobileVO.DoesNotExist:
+      return JsonResponse(
+          {"message": "Invalid automobile id"},
+          status=400,
+      )
+
+    except Salesperson.DoesNotExist:
+      return JsonResponse(
+          {"message": "Invalid salesperson id"},
+          status=400,
+      )
+
+    except Customer.DoesNotExist:
+      return JsonResponse(
+          {"message": "Invalid Customer id"},
+          status=400,
+      )
+
+    sale = Sale.objects.create(**content)
+    return JsonResponse(
+      sale,
+      encoder=SaleListEncoder,
+      safe=False
+    )
+
 # Delete a salesperson
 @require_http_methods(["DELETE"])
 def show_salespeople(request, pk):
   count, _ = Salesperson.objects.filter(id=pk).delete()
   return JsonResponse({"deleted": count > 0})
 
+# Customer view methods
 # List Customer and create a customer
 @require_http_methods(["GET", "POST"])
 def list_customer(request):
