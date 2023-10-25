@@ -19,13 +19,14 @@ class Technician(models.Model):
 class AutomobileVO(models.Model):
     vin = models.CharField(max_length=17, unique=True)
     sold = models.BooleanField(default=False)
-    import_href = models.CharField(max_length=200, blank=True, null=True, unique=True)
-    color = models.CharField(max_length=50)
-    year = models.PositiveSmallIntegerField()
+
 
     def __str__(self):
         return "Auto Vin -" + self.vin
     
+    def get_api_url(self):
+        return reverse("api_show_location", kwargs={"pk": self.pk})
+
 
 class Appointment(models.Model):
     date_time = models.DateTimeField(max_length=17) 
@@ -57,7 +58,6 @@ class Appointment(models.Model):
 
 
 
-    # def get_api_url(self):
-    #     return reverse("api_show_location", kwargs={"pk": self.pk})
+
 
 

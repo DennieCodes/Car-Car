@@ -31,7 +31,5 @@ class AutomobileVOAdmin(admin.ModelAdmin):
     list_display = (
             "vin",
             "sold", 
-            "import_href",
-            "color",
-            "year",
+         
          )
