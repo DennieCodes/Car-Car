@@ -9,6 +9,7 @@ class TechnicianEncoder(ModelEncoder):
         "first_name",
         "last_name",
         "employee_id",
+        "id"
     ]
 
 
@@ -17,11 +18,12 @@ class AppointmentEncoder(ModelEncoder):
     properties = [
         "id",
         "vin",
-        "customer_name",
+        "customer",
         "date_time",
         "reason",
         "technician",
         "dealership_purchase",
+        "status",
     ]
     encoders = {
         "technician": TechnicianEncoder(),
@@ -31,6 +33,7 @@ class AppointmentEncoder(ModelEncoder):
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
     properties = [
+        "id",
         "import_href",
         "color",
         "year",

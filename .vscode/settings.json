@@ -1,3 +1,7 @@
 {
 	"python.analysis.extraPaths": ["./sales/api"]
 }
+    "python.analysis.extraPaths": [
+        "./service/api"
+    ]
+}
