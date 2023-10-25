@@ -1,8 +1,41 @@
 import json
-from .encoders import SalespeopleListEncoder, CustomerListEncoder, SaleListEncoder
+from .encoders import SalespeopleListEncoder, CustomerListEncoder, SaleListEncoder, AutomobileVOEncoder
 from .models import AutomobileVO, Salesperson, Customer, Sale
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
+
+# AutomobileVO view methods
+########################################
+# List automobiles
+@require_http_methods(["GET"])
+def list_automobiles(request):
+  if request.method == "GET":
+    automobiles = AutomobileVO.objects.all()
+
+    return JsonResponse(
+      { "automobiles": automobiles },
+      encoder=AutomobileVOEncoder,
+      safe=False
+    )
+
+# Get automobiles
+@require_http_methods(["GET"])
+def show_automobile(request, pk):
+  try:
+    if request.method == "GET":
+      automobile = AutomobileVO.objects.get(vin=pk)
+
+      return JsonResponse(
+        { "automobile": automobile },
+        encoder=AutomobileVOEncoder,
+        safe=False
+      )
+  except AutomobileVO.DoesNotExist:
+    return JsonResponse(
+      {"message": "That Automobile id is invalid"},
+        status=404,
+    )
+
 
 # Salespeople view methods
 ########################################
@@ -13,7 +46,7 @@ def list_salespeople(request):
     salespersons = Salesperson.objects.all()
 
     return JsonResponse(
-      { "salesperson": salespersons },
+      { "salespeople": salespersons },
         encoder=SalespeopleListEncoder,
         safe=False,
     )
@@ -30,8 +63,21 @@ def list_salespeople(request):
 # Delete a salesperson
 @require_http_methods(["DELETE"])
 def show_salespeople(request, pk):
-  count, _ = Salesperson.objects.filter(id=pk).delete()
-  return JsonResponse({"deleted": count > 0})
+  if request.method == "DELETE":
+    try:
+      # Salesperson.objects.filter(id=pk).delete()
+      salesperson = Salesperson.objects.get(id=pk)
+      salesperson.delete()
+      return JsonResponse(
+            {"message": "The Salesperson was deleted"},
+            status=200,
+        )
+
+    except Salesperson.DoesNotExist:
+      return JsonResponse(
+        {"message": "That Salesperon id is invalid"},
+        status=404,
+      )
 
 # Sales view methods
 ########################################
@@ -89,10 +135,19 @@ def list_sales(request):
 @require_http_methods(["DELETE"])
 def show_sale(request, pk):
   if request.method == "DELETE":
-    count, _ = Sale.objects.filter(id=pk).delete()
-    return JsonResponse(
-      { "deleted": count > 0 }
-    )
+    try:
+      sale = Sale.objects.get(id=pk)
+      sale.delete()
+
+      return JsonResponse(
+            {"message": "Sale was successfully deleted"},
+            status=404,
+        )
+    except Sale.DoesNotExist:
+      return JsonResponse(
+            {"message": "Invalid Sale id"},
+            status=404,
+        )
 
 # Customer view methods
 ########################################
@@ -100,19 +155,19 @@ def show_sale(request, pk):
 @require_http_methods(["GET", "POST"])
 def list_customer(request):
   if request.method == "GET":
-    customer = Customer.objects.all()
+    customers = Customer.objects.all()
 
     return JsonResponse(
-      { "customer": customer},
+      { "customers": customers},
       encoder=CustomerListEncoder,
       safe=False
     )
   else:
     content = json.loads(request.body)
 
-    customer = Customer.objects.create(**content)
+    customers = Customer.objects.create(**content)
     return JsonResponse(
-      customer,
+      customers,
       encoder=CustomerListEncoder,
       safe=False
     )
@@ -121,7 +176,15 @@ def list_customer(request):
 @require_http_methods(["DELETE"])
 def show_customer(request, pk):
   if request.method == "DELETE":
-    count, _ = Customer.objects.filter(id=pk).delete()
-    return JsonResponse(
-      { "deleted": count > 0 }
-    )
+    try:
+        customer = Customer.objects.get(id=pk)
+        customer.delete()
+        return JsonResponse(
+            {"message": "Customer was deleted"},
+            status=200,
+        )
+    except Customer.DoesNotExist:
+      return JsonResponse(
+            {"message": "Invalid Customer id"},
+            status=404,
+        )

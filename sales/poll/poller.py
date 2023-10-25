@@ -25,7 +25,7 @@ def poll(repeat=True):
                     defaults={
                         "vin": auto['vin'],
                         "sold": auto['sold'],
-                        "year": auto['year']
+                        # "year": auto['year']
                     }
                 )
 

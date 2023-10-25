@@ -11,4 +11,4 @@ class SalespersonAdmin(admin.ModelAdmin):
 
 @admin.register(AutomobileVO)
 class AutomobileVOAdmin(admin.ModelAdmin):
-  list_display = ("id", "import_href", "color", "vin", "sold", "year")
+  list_display = ("vin", "sold")

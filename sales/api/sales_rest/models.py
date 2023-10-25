@@ -1,16 +1,18 @@
 from django.db import models
 from django.urls import reverse
 
+# Automobile
 class AutomobileVO(models.Model):
-  import_href = models.CharField(max_length=200, unique=True)
-  color = models.CharField(max_length=50)
+  # import_href = models.CharField(max_length=200, unique=True)
+  # color = models.CharField(max_length=50)
   vin = models.CharField(max_length=50, unique=True)
   sold = models.BooleanField(default=False)
-  year = models.PositiveSmallIntegerField(null=False)
+  # year = models.PositiveSmallIntegerField(null=False, default=2023)
 
   def __str__(self):
     return self.vin
 
+# Salesperson
 class Salesperson(models.Model):
   first_name = models.CharField(max_length=50)
   last_name = models.CharField(max_length=50)
@@ -19,6 +21,10 @@ class Salesperson(models.Model):
   def ___str__(self):
     return self.employee_id
 
+  def get_api_url(self):
+        return reverse("show_salespeople", kwargs={"pk": self.pk})
+
+# Customer
 class Customer(models.Model):
   first_name = models.CharField(max_length=50)
   last_name = models.CharField(max_length=50)
@@ -31,6 +37,7 @@ class Customer(models.Model):
   def get_api_url(self):
         return reverse("show_customer", kwargs={"pk": self.pk})
 
+# Sale
 class Sale(models.Model):
   price = models.PositiveIntegerField()
 
@@ -54,3 +61,6 @@ class Sale(models.Model):
 
   def __str__(self):
     return f"{self.salesperson.first_name} {self.salesperson.last_name}"
+
+  def get_api_url(self):
+        return reverse("show_sale", kwargs={"pk": self.pk})
