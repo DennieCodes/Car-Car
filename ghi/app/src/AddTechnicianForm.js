@@ -4,7 +4,7 @@ import './index.css'
 function AddTechnicianForm() {
 
 const [values, setValues] = useState({
-    firstName: '',
+    first_name: '',
     lastName: '',
     employee_id: "",
 })
@@ -13,16 +13,19 @@ const [values, setValues] = useState({
 const [submitted, setSubmitted] = useState(false)
 const [valid, setValid] = useState(false)
 
-const handleNameChange = (event) => {
+const handlefirstNameChange = (event) => {
     setValues({...values, first_name: event.target.value})
 }
-const handleEmployee_NumberChange = (event) => {
+const handleLastNameChange = (event) => {
+  setValues({...values, last_name: event.target.value})
+}
+const handleEmployee_id = (event) => {
     setValues({...values, employee_id: event.target.value})
 }
 const handleSubmit = (event) => {
     event.preventDefault()
     setSubmitted(true)
-    if(values.firstName && values.lastName && values.employee_id) {
+    if(values.first_name && values.last_name && values.employee_id) {
     setValid(true)
     }
     const newAutoTechnician = {
@@ -61,12 +64,21 @@ return (
 
             <div className="form-floating mb-3">
               <input
-              value={values.name}
-              onChange={handleNameChange} placeholder="Name"
+              value={values.firstName}
+              onChange={handlefirstNameChange} placeholder="firstName"
               required type="text"
-              name="Name" id="Name" className="form-control" />
-              <label htmlFor="Name">Name</label>
-              {submitted && !values.name ? <span>Please enter a name</span> : null}
+              name="firstName" id="firstName" className="form-control" />
+              <label htmlFor="firstName">First Name</label>
+              {submitted && !values.firstName ? <span>Please enter your first name</span> : null}
+            </div>
+            <div className="form-floating mb-3">
+              <input
+              value={values.LastName}
+              onChange={handleLastNameChange} placeholder="lastName"
+              required type="text"
+              name="LastName" id="lastName" className="form-control" />
+              <label htmlFor="lastName">First Name</label>
+              {submitted && !values.lastName ? <span>Please enter your last name</span> : null}
             </div>
 
             <div className="form-floating mb-3">
