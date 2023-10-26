@@ -13,6 +13,7 @@ function SalesMain() {
               <NavLink className="nav-link" to="/salesform">Add a Sale</NavLink>
               <NavLink className="nav-link" to="/salesperson">Add a Salesperson</NavLink>
               <NavLink className="nav-link" to="/salespeople">List Salespeople</NavLink>
+              <NavLink className="nav-link" to="/saleshistory">View Salespeople History</NavLink>
               <NavLink className="nav-link" to="/customer">Add a Customer</NavLink>
               <NavLink className="nav-link" to="/customers">List Customers</NavLink>
             </li>

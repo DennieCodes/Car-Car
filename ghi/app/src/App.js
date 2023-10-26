@@ -9,6 +9,7 @@ import Customers from './pages/Customers';
 import SalesPeople from './pages/Salespeople';
 import ServiceMain from './pages/ServiceMain';
 import Sales from './pages/Sales';
+import SalespersonHistory from './pages/SalespersonHistory';
 
 function App() {
 	return (
@@ -21,9 +22,10 @@ function App() {
 					<Route path="/saleslist" element={<Sales />} />
 					<Route path="/salesform" element={<SalesForm />} />
 					<Route path="/salesperson" element={<SalesPersonForm />} />
+					<Route path="/saleshistory" element={<SalespersonHistory />} />
+					<Route path="/salespeople" element={<SalesPeople />} />
 					<Route path="/customer" element={<Customer />} />
 					<Route path="/customers" element={<Customers />} />
-					<Route path="/salespeople" element={<SalesPeople />} />
 
 					<Route path="/service" element={<ServiceMain />} />
 				</Routes>
