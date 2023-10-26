@@ -9,7 +9,8 @@ function SalesMain() {
         <div>
           <ul>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/salesform">Salesform</NavLink>
+              <NavLink className="nav-link" to="/salesform">Add a Sale</NavLink>
+              <NavLink className="nav-link" to="/salesperson">Add a Salesperson</NavLink>
             </li>
           </ul>
         </div>
