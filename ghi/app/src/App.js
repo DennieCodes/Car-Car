@@ -9,10 +9,8 @@ function App() {
 			<Nav />
 			<div className="container">
 				<Routes>
-					
-				<Route path="/" element={<AddTechnicianForm/>} />	
-				<Route path="/" element={<MainPage />} />
-				<Route path="/" element={<SalesForm />} />
+					<Route path="/" element={<MainPage />} />
+					<Route path="/salesform" element={<SalesForm />} />
 				</Routes>
 			</div>
 		</BrowserRouter>
