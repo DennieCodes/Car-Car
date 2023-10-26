@@ -19,7 +19,7 @@ const handlefirstNameChange = (event) => {
 const handleLastNameChange = (event) => {
   setValues({...values, last_name: event.target.value})
 }
-const handleEmployee_id = (event) => {
+const handleEmployeeChange = (event) => {
     setValues({...values, employee_id: event.target.value})
 }
 const handleSubmit = (event) => {
@@ -28,27 +28,30 @@ const handleSubmit = (event) => {
     if(values.first_name && values.last_name && values.employee_id) {
     setValid(true)
     }
-    const newAutoTechnician = {
-        'firstName': values.firstName,
-        'lastName':values.lastName,
+    const Technician = {
+        'first_name': values.first_name,
+        'last_name':values.last_name,
         'employee_id': values.employee_id,
         
     }
 
-    const AutoTechnicianUrl = 'http://localhost:8080/api/technicians/'
+    const TechnicianUrl = 'http://localhost:8080/api/technicians/'
     const fetchConfig = {
         method: "post",
-        body: JSON.stringify(newAutoTechnician),
+        body: JSON.stringify(Technician),
         headers: {
             'Content-Type': 'application/json',
         }
     }
 
-    fetch(AutoTechnicianUrl, fetchConfig)
+    fetch(TechnicianUrl, fetchConfig)
         .then(response => response.json())
         .then(() => {
             setValues(values)
             setSubmitted(true)
+            // first_name =""
+            // last_name =""
+            // employee_id =""
         })
         .catch(e => console.log('error:', e))
 }
@@ -69,22 +72,22 @@ return (
               required type="text"
               name="firstName" id="firstName" className="form-control" />
               <label htmlFor="firstName">First Name</label>
-              {submitted && !values.firstName ? <span>Please enter your first name</span> : null}
+              {submitted && !values.first_name ? <span>Please enter your first name</span> : null}
             </div>
             <div className="form-floating mb-3">
               <input
-              value={values.LastName}
+              value={values.last_name}
               onChange={handleLastNameChange} placeholder="lastName"
               required type="text"
               name="LastName" id="lastName" className="form-control" />
-              <label htmlFor="lastName">First Name</label>
+              <label htmlFor="lastName">Last Name</label>
               {submitted && !values.lastName ? <span>Please enter your last name</span> : null}
             </div>
 
             <div className="form-floating mb-3">
               <input
-              value={values.employee_number}
-              onChange={handleEmployee_NumberChange} placeholder="employee_number"
+              value={values.employee_id}
+              onChange={handleEmployeeChange} placeholder="employee_number"
               required type="number" name="employee_number" id="employee_number" className="form-control" />
               <label htmlFor="employee_number">employee number</label>
               {submitted && !values.employee_number ? <span>Please enter an employee number</span> : null}

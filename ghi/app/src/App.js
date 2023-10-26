@@ -4,6 +4,7 @@ import Nav from './Nav';
 import SalesMain from './pages/SalesMain';
 import SalesForm from './pages/SalesForm';
 import ServiceMain from './pages/ServiceMain';
+import AddTechnicianForm from "./AddTechnicianForm"
 
 function App() {
 	return (
@@ -16,6 +17,7 @@ function App() {
 					<Route path="/salesform" element={<SalesForm />} />
 
 					<Route path="/service" element={<ServiceMain />} />
+					<Route path="/addTechnician" element={<AddTechnicianForm />} />
 				</Routes>
 			</div>
 		</BrowserRouter>

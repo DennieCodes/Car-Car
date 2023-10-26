@@ -1,6 +1,6 @@
 // import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-// import SalesForm from './SalesForm'
+
 
 function ServiceMain() {
   return (
@@ -10,7 +10,7 @@ function ServiceMain() {
         <div>
           <ul>
             <li className="nav-item">
-              {/* <NavLink className="nav-link" to="/salesform">Salesform</NavLink> */}
+              <NavLink className="nav-link" to="/addTechnician">AddTechnicianForm</NavLink>
             </li>
           </ul>
         </div>
