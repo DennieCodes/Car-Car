@@ -5,6 +5,7 @@ import SalesMain from './pages/SalesMain';
 import SalesForm from './pages/SalesForm';
 import SalesPersonForm from './pages/SalesPersonForm';
 import Customer from './pages/Customer';
+import SalesPeople from './pages/Salespeople';
 import ServiceMain from './pages/ServiceMain';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
 					<Route path="/salesform" element={<SalesForm />} />
 					<Route path="/salesperson" element={<SalesPersonForm />} />
 					<Route path="/customer" element={<Customer />} />
+					<Route path="/salespeople" element={<SalesPeople />} />
 
 					<Route path="/service" element={<ServiceMain />} />
 				</Routes>
