@@ -11,6 +11,7 @@ function ServiceMain() {
           <ul>
             <li className="nav-item">
               <NavLink className="nav-link" to="/addTechnician">AddTechnicianForm</NavLink>
+              <NavLink className="nav-link" to="/listTechnicians">ListTechnicians</NavLink>
             </li>
           </ul>
         </div>

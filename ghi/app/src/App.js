@@ -5,6 +5,7 @@ import SalesMain from './pages/SalesMain';
 import SalesForm from './pages/SalesForm';
 import ServiceMain from './pages/ServiceMain';
 import AddTechnicianForm from "./AddTechnicianForm"
+import ListTechnicians  from './ListTehnichians';
 
 function App() {
 	return (
@@ -18,6 +19,7 @@ function App() {
 
 					<Route path="/service" element={<ServiceMain />} />
 					<Route path="/addTechnician" element={<AddTechnicianForm />} />
+					<Route path="/listTechnicians" element={<ListTechnicians />} />
 				</Routes>
 			</div>
 		</BrowserRouter>
