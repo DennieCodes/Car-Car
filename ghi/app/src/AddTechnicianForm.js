@@ -32,7 +32,7 @@ const handleSubmit = (event) => {
         
     }
 
-    const AutoTechnicianUrl = 'http://localhost:8080/api/autotechnician/'
+    const AutoTechnicianUrl = 'http://localhost:8080/api/technicians/'
     const fetchConfig = {
         method: "post",
         body: JSON.stringify(newAutoTechnician),
