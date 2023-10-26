@@ -8,6 +8,7 @@ import Customer from './pages/Customer';
 import Customers from './pages/Customers';
 import SalesPeople from './pages/Salespeople';
 import ServiceMain from './pages/ServiceMain';
+import Sales from './pages/Sales';
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<MainPage />} />
 					<Route path="/sales" element={<SalesMain />} />
+					<Route path="/saleslist" element={<Sales />} />
 					<Route path="/salesform" element={<SalesForm />} />
 					<Route path="/salesperson" element={<SalesPersonForm />} />
 					<Route path="/customer" element={<Customer />} />

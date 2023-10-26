@@ -33,12 +33,12 @@ function SalesForm() {
 
       if (salespersonResponse.ok) {
         const data = await salespersonResponse.json();
-        setSalesPersons(data.salesperson);
+        setSalesPersons(data.salespeople);
       }
 
       if (customerResponse.ok) {
         const data = await customerResponse.json();
-        setCustomers(data.customer);
+        setCustomers(data.customers);
       }
     } catch (error) {
       console.error(error);
