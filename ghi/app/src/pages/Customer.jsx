@@ -1,22 +1,25 @@
 import React, {useState} from 'react'
 
-function SalesPersonForm() {
+function Customer() {
   const [ firstName, setFirstName ] = useState("");
   const [ lastName, setLastName ] = useState("");
-  const [ employeeId, setEmployeeId ] = useState("");
+  const [ address, setAddress ] = useState("");
+  const [ phoneNumber, setPhoneNumber ] = useState("");
 
   const handleChangeFirstName = (e) => setFirstName(e.target.value);
   const handleChangeLastName = (e) => setLastName(e.target.value);
-  const handleChangeEmployeeId = (e) => setEmployeeId(e.target.value);
+  const handleChangeAddress = (e) => setAddress(e.target.value);
+  const handleChangePhoneNumber = (e) => setPhoneNumber(e.target.value);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = {};
     data.first_name = firstName;
     data.last_name = lastName;
-    data.employee_id = employeeId;
+    data.phone_number = phoneNumber;
+    data.address = address;
 
-    const url = "http://localhost:8090/api/salespeople/";
+    const url = "http://localhost:8090/api/customers/";
     const fetchConfig = {
 			method: 'post',
 			body: JSON.stringify(data),
@@ -28,12 +31,13 @@ function SalesPersonForm() {
     const response = await fetch(url, fetchConfig);
 
     if (response.ok) {
-      const newSale = await response.json();
-      console.log(newSale);
+      const newCustomer = await response.json();
+      console.log(newCustomer);
 
       setFirstName("");
       setLastName("");
-      setEmployeeId("");
+      setPhoneNumber("");
+      setAddress("");
     }
   }
 
@@ -69,21 +73,34 @@ function SalesPersonForm() {
 
         <div className="form-floating mb-2">
           <input
-            onChange={handleChangeEmployeeId}
-            value={employeeId}
+            onChange={handleChangeAddress}
+            value={address}
             className="form-control"
             required
             type="text"
-            name="employeeId"
-            id="employeeId"
+            name="address"
+            id="address"
           />
-          <label htmlFor="employeeId">Employee Id</label>
+          <label htmlFor="address">Address</label>
         </div>
 
-        <button className='mt-3 btn btn-primary'>Add Salesperson</button>
+        <div className="form-floating mb-2">
+          <input
+            onChange={handleChangePhoneNumber}
+            value={phoneNumber}
+            className="form-control"
+            required
+            type="text"
+            name="phoneNumber"
+            id="phoneNumber"
+          />
+          <label htmlFor="phoneNumber">Phone Number</label>
+        </div>
+
+        <button className='mt-3 btn btn-primary'>Add a Customer</button>
       </form>
     </div>
   )
 }
 
-export default SalesPersonForm
+export default Customer
