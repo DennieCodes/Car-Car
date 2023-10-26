@@ -7,9 +7,13 @@ import SalesPersonForm from './pages/SalesPersonForm';
 import Customer from './pages/Customer';
 import Customers from './pages/Customers';
 import SalesPeople from './pages/Salespeople';
-import ServiceMain from './pages/ServiceMain';
 import Sales from './pages/Sales';
 import SalespersonHistory from './pages/SalespersonHistory';
+
+import InventoryMain from './pages/InventoryMain';
+import ManufacturerList from './pages/ManufacturerList';
+
+import ServiceMain from './pages/ServiceMain';
 
 function App() {
 	return (
@@ -26,6 +30,9 @@ function App() {
 					<Route path="/salespeople" element={<SalesPeople />} />
 					<Route path="/customer" element={<Customer />} />
 					<Route path="/customers" element={<Customers />} />
+
+					<Route path="/inventory" element={<InventoryMain />} />
+					<Route path="/manufacturers" element={<ManufacturerList />} />
 
 					<Route path="/service" element={<ServiceMain />} />
 				</Routes>

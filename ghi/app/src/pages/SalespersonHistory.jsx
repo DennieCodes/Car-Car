@@ -58,7 +58,6 @@ function SalespersonHistory() {
         </div>
       </form>
 
-
       <table className="table table-striped">
         <thead>
           <tr>

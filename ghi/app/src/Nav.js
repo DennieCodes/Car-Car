@@ -30,6 +30,11 @@ function Nav() {
 								Service
 							</NavLink>
 						</li>
+						<li className="nav-item">
+							<NavLink className="nav-link" to="/inventory">
+								Inventory
+							</NavLink>
+						</li>
 					</ul>
 				</div>
 			</div>
