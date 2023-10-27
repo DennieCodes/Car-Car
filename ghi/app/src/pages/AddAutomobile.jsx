@@ -48,8 +48,6 @@ function AddAutomobile() {
 			},
 		};
 
-    console.log("DATA: ", data);
-
     const response = await fetch(url, fetchConfig);
 
     if (response.ok) {
