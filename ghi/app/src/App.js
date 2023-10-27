@@ -12,6 +12,7 @@ import SalespersonHistory from './pages/SalespersonHistory';
 
 import InventoryMain from './pages/InventoryMain';
 import ManufacturerList from './pages/ManufacturerList';
+import CarModels from './pages/CarModels';
 
 import ServiceMain from './pages/ServiceMain';
 
@@ -33,6 +34,7 @@ function App() {
 
 					<Route path="/inventory" element={<InventoryMain />} />
 					<Route path="/manufacturers" element={<ManufacturerList />} />
+					<Route path="/carmodels" element={<CarModels />} />
 
 					<Route path="/service" element={<ServiceMain />} />
 				</Routes>
