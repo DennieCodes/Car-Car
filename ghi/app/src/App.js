@@ -6,7 +6,8 @@ import SalesForm from './pages/SalesForm';
 import ServiceMain from './pages/ServiceMain';
 import AddTechnicianForm from "./AddTechnicianForm"
 import ListTechnicians  from './ListTehnichians';
-
+import CreateAppointment from './CreateAppointment'
+import ListServiceAppointments from './ListServiceAppointments'
 function App() {
 	return (
 		<BrowserRouter>
@@ -20,6 +21,8 @@ function App() {
 					<Route path="/service" element={<ServiceMain />} />
 					<Route path="/addTechnician" element={<AddTechnicianForm />} />
 					<Route path="/listTechnicians" element={<ListTechnicians />} />
+					<Route path="/CreateAppointment" element={<CreateAppointment />} />
+					<Route path="/ListServiceAppointments" element={<ListServiceAppointments />} />
 				</Routes>
 			</div>
 		</BrowserRouter>

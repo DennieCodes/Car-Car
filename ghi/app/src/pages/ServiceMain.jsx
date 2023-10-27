@@ -12,6 +12,8 @@ function ServiceMain() {
             <li className="nav-item">
               <NavLink className="nav-link" to="/addTechnician">AddTechnicianForm</NavLink>
               <NavLink className="nav-link" to="/listTechnicians">ListTechnicians</NavLink>
+              <NavLink className="nav-link" to="/CreateAppointment">CreateAppointment</NavLink>
+              <NavLink className="nav-link" to="/ListServiceAppointments">ListServiceAppointment</NavLink>
             </li>
           </ul>
         </div>
