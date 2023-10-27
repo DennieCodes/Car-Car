@@ -94,7 +94,7 @@ def api_Appointments_list(request):
             inventory = AutomobileVO.objects.all().values_list('vin', flat=True)
             if content["vin"] in inventory:
                 content["dealership_purchase"] = True
-            print(inventory, "this is my test")
+            # print(inventory, "this is my test")
             appointments = Appointment.objects.create(**content)
             return JsonResponse(
                 appointments,

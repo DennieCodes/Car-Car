@@ -15,8 +15,43 @@ const ListServiceAppointments =() =>{
     }, [])
 
 
+  
+
+  const handleSubmitCancel = async(e) => {
+    const id = e.target.value
+    const url = `http://localhost:8080/api/appointments/${id}/cancel/`
+    const fetchConfig  = {
+      method : "PUT"
+    }
+
+    const response = await fetch(url, fetchConfig);
+    if(response.ok){
+      const service = await response.json()
+      console.log(service)
+    }
+
+  }
+
+  const handleSubmitFinish = async(e) => {
+    const id = e.target.value
+    const url =  `http://localhost:8080/api/appointments/${id}/finish/`
+    const fetchConfig  = {
+      method : "PUT"
+    }
+
+    const response = await fetch(url, fetchConfig);
+    if(response.ok){
+      const service = await response.json()
+      console.log(service)
+    }
+
+  }
+
+
+
 return(
      <div>
+          <h1 className='large-heading-dark text-center mb-20'>List of Upcoming Service Appointments</h1>
         <table className="table table-striped">
             <thead>
               <tr>
@@ -30,37 +65,41 @@ return(
                 <th></th>
              </tr>
             </thead> 
-             <tbody className='text-white'>
+             <tbody>
+
               { appointments.map(service => {
                 const {technician, date_time} = service;
-                console.log(date_time)
-                let date = ""
-                let time = ""
-              
+                const dateTime = new Date(date_time);
+                const date = dateTime.toISOString().split('T')[0]; 
+                const time = dateTime.toTimeString().split(' ')[0]; 
 
                 return (
-
+      
                   <tr key={service.id}>
                     <td>{service.vin}</td>
                     <td>{service.customer}</td>
-                    <td>{service.dealership_purchase && (<div>VIP</div>)}</td>
+                    <td>{service.dealership_purchase ? "Yes" : "No"}</td>
                     <td>{date}</td>
                     <td>{time}</td>
                     <td>{service.reason}</td>
                     <td>{technician.first_name} {technician.last_name}</td>
-                    <td><button className=" btn-danger buttons ">Canceled</button><button  className=" btn-success buttons">Finished</button></td>
-                  
-                   
+                    <td>
+                      <button className=" btn-danger buttons" value = {service.id} onClick = {handleSubmitCancel}>Canceled</button>
+                      <button  className=" btn-success buttons" value = {service.id} onClick = {handleSubmitFinish}>Finished</button>
+                    </td>
                   </tr>
-                );
-              })}
-            </tbody> 
-        </table>
+                    ); 
+                })}  
+              </tbody> 
+        </table>  
+              
+  
         <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <Link to ="/CreateAppointment/" className="btn btn-dark buttons btn-med px-4 gap-3">Create Service Appointment</Link>
+        <Link to ="/CreateAppointment/" className="btn btn-success buttons btn-med px-4 gap-3">Create Service Appointment</Link>
         </div>
 
     </div>
 )
 }
+
 export default ListServiceAppointments

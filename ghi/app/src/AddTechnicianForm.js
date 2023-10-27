@@ -92,7 +92,7 @@ return (
               <label htmlFor="employee_number">employee number</label>
               {submitted && !values.employee_number ? <span>Please enter an employee number</span> : null}
             </div>
-            <button className="btn btn-dark buttons">Create</button>
+            <button className="btn btn-success buttons">Create</button>
           </form>
         </div>
       </div>
