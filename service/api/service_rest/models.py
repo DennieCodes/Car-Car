@@ -40,21 +40,6 @@ class Appointment(models.Model):
     )
 
 
-    # def __str__(self):
-    #     return self.customer_name
-    
-    # def finish(self):
-    #     status = Appointment.objects.get(name="FINISH")
-    #     self.status = status
-    #     self.save()
-
-    # def cancel(self):
-    #     status = Appointment.objects.get(name="CANCEL")
-    #     self.status = status
-    #     self.save()
-
-#model for the cars in the dealership and whether they are sold are not.
-
 
 
 
