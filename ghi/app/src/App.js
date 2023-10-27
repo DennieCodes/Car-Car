@@ -14,6 +14,7 @@ import InventoryMain from './pages/InventoryMain';
 import ManufacturerList from './pages/ManufacturerList';
 import AddManufacturer from './pages/AddManufacturer';
 import CarModels from './pages/CarModels';
+import AddModel from './pages/AddModel';
 
 import ServiceMain from './pages/ServiceMain';
 
@@ -37,6 +38,7 @@ function App() {
 					<Route path="/manufacturers" element={<ManufacturerList />} />
 					<Route path="/addmanufacturer" element={<AddManufacturer />} />
 					<Route path="/carmodels" element={<CarModels />} />
+					<Route path="/addmodel" element={<AddModel />} />
 
 					<Route path="/service" element={<ServiceMain />} />
 				</Routes>
