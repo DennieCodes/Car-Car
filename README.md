@@ -29,10 +29,10 @@ In order to work with data you can create it in insomnia.
 ```
 
 
-## CRUD
+# CRUD
 
 
- **React Front End for Sales**
+ ## React Front End for Sales
 
  ```
 http://localhost:3000/sales/ - Lists out all sales records
@@ -47,7 +47,7 @@ http://localhost:3000/salesteam/{id} - Form to create a new salesperson
 ```
 
 
-**React Front End for Service**
+## React Front End for Service
 
 ```
 http://localhost:3000/technician/{id}/ - Form to create a new Auto technician
@@ -63,18 +63,18 @@ http://localhost:3000/appointments/ - List all Service appointments
 # Models Diagram
 ![](images/Beta%20Project%20Model%20Diagram.png)
 
- ### Poller
+## Poller
 Automobiles from inventory are polled every 60 seconds which creates an AutmobileVO (valueobject) for the Sales and Service microservices.
 
-## Service microservice
+# Service microservice
 
 ```
-Technician:
+Technician Model:
   - "first_name",
   - "last_name",
   - "employee_id" inputs are received through form.
 
-Service Appointment:
+Appointment Model:
     - "vin", Vehicle vin.
     - "customer_name", vehicle ownwer name.
     - "date_and_time", scheduled service appointment date and time; inputs received thorugh form
@@ -82,7 +82,7 @@ Service Appointment:
     - "dealership_purchase", determines whether the vehicle vin for the service appointment matches inventory vehicle vin, for access to VIP treatment.
     - "technician", the selected technician for the service appointment. Technician was a Foreign Key with Appointment as the related word.
 
-AutomobileVO:
+AutomobileVO Model:
     -"sold", a boolean that would answer whether the car had been sold
     - "vin", of the vehicle in inventory.
 
@@ -92,9 +92,27 @@ Relation of Inventory microservice:
 
 
 
-## Sales microservice
+# Sales microservice
+```
+Salesperson Model
+    -"first_name"
+    -"last_name"
+    -"employee_id" 
 
+Customer Model:
+    -"first_name",
+    -"last_name" ,
+    -"address" ,
+    -"phone_number"  
 
+Sale Model:
+    -"price",
+    -"automobile"(Foreign key),
+    -"customer" = (ForeignKey),
+    -"salesperson" = (ForeignKey)
+
+Relation to Inventory:
+```
 
 
 
