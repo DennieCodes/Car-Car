@@ -30,13 +30,9 @@ In order to work with data you can create it in insomnia.
 ## CRUD
 
 
-
-
-
-**Poller**
-    Automobiles from inventory are polled every 60 seconds which creates an AutmobileVO (valueobject) for the Sales and Service microservices.
-
  **React Front End for Sales**
+
+ ```
 http://localhost:3000/sales/ - Lists out all sales records
 
 http://localhost:3000/sales/{id} - Form to create a new salerecord
@@ -46,17 +42,26 @@ http://localhost:3000/sales/history - List all salesrecords by selected salesper
 http://localhost:3000/customers/{id}- Form to create a new customer
 
 http://localhost:3000/salesteam/{id} - Form to create a new salesperson
-
+```
 
 
 **React Front End for Service**
+
+```
 http://localhost:3000/technician/{id}/ - Form to create a new Auto technician
 
 http://localhost:3000/appointment/{id}/ - Form to create a new Service appointment
 
 http://localhost:3000/appointments/ - List all Service appointments
+```
+![](images/REST%20API%20diagram.png)
 
 
+## Models Diagram
+![](images/Beta%20Project%20Model%20Diagram.png)
+
+ ### Poller
+Automobiles from inventory are polled every 60 seconds which creates an AutmobileVO (valueobject) for the Sales and Service microservices.
 
 ## Service microservice
 
@@ -90,7 +95,7 @@ Relation of Inventory microservice:
 
 
 
-## Design
-
+## Project Architecture Diagram
+![](images/Car%20Car%20project%20architecture.png)
 
 
