@@ -72,6 +72,25 @@ function SalesForm() {
       const newSale = await response.json();
       console.log(newSale);
 
+      const url = `http://localhost:8100/api/automobiles/${automobile}/`;
+      const data = {};
+      data.sold = true;
+
+      const fetchConfig = {
+        method: 'PUT',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json',
+        }
+		  };
+
+      const updateAutoResponse = await fetch(url, fetchConfig);
+
+      if (updateAutoResponse.ok) {
+        const autoResponse = await updateAutoResponse.json();
+        console.log(autoResponse);
+      }
+
       setPrice(0);
       setAutomobile("");
       setSalesperson("");
