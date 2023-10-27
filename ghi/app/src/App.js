@@ -19,7 +19,11 @@ import Automobiles from './pages/Automobiles';
 import AddAutomobile from './pages/AddAutomobile';
 
 import ServiceMain from './pages/ServiceMain';
-
+import AddTechnicianForm from "./AddTechnicianForm"
+import ListTechnicians  from './ListTehnichians';
+import CreateAppointment from './CreateAppointment'
+import ListServiceAppointments from './ListServiceAppointments'
+import ServiceHistory from './ServiceHistory'
 function App() {
 	return (
 		<BrowserRouter>
@@ -45,6 +49,11 @@ function App() {
 					<Route path="/addautomobiles" element={<AddAutomobile />} />
 
 					<Route path="/service" element={<ServiceMain />} />
+					<Route path="/addTechnician" element={<AddTechnicianForm />} />
+					<Route path="/listTechnicians" element={<ListTechnicians />} />
+					<Route path="/CreateAppointment" element={<CreateAppointment />} />
+					<Route path="/ListServiceAppointments" element={<ListServiceAppointments />} />
+					<Route path="/ServiceHistory" element={<ServiceHistory />} />
 				</Routes>
 			</div>
 		</BrowserRouter>
