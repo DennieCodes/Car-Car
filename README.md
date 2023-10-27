@@ -19,9 +19,11 @@
 
 1. docker-compose up
 
-*When you run docker-compose up and if you're on macOS, you will see a warning about an environment variable named OS being missing. You can safely ignore this.*
+When you run docker-compose up and if you're on macOS, you will see a 
+warning about an environment variable named OS being missing. You can safely ignore this.*
 
-visit http://localhost:3000/ in your browser to view the React application once all containers are up and running
+visit http://localhost:3000/ in your browser to view the React application 
+once all containers are up and running
 
 In order to work with data you can create it in insomnia.
 ```
@@ -54,10 +56,11 @@ http://localhost:3000/appointment/{id}/ - Form to create a new Service appointme
 
 http://localhost:3000/appointments/ - List all Service appointments
 ```
+# Api's/Method/Port/Result/URLs
 ![](images/REST%20API%20diagram.png)
 
 
-## Models Diagram
+# Models Diagram
 ![](images/Beta%20Project%20Model%20Diagram.png)
 
  ### Poller
