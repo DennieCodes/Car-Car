@@ -19,6 +19,9 @@ function SalesMain() {
             <li className="nav-item">
               <NavLink className="nav-link" to="/addmodel">Add a Car Model</NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink className="nav-link" to="/automobiles">List Automobiles</NavLink>
+            </li>
 
           </ul>
         </div>
