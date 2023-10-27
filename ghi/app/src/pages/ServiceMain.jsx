@@ -10,10 +10,11 @@ function ServiceMain() {
         <div>
           <ul>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/addTechnician">AddTechnicianForm</NavLink>
-              <NavLink className="nav-link" to="/listTechnicians">ListTechnicians</NavLink>
-              <NavLink className="nav-link" to="/CreateAppointment">CreateAppointment</NavLink>
-              <NavLink className="nav-link" to="/ListServiceAppointments">ListServiceAppointment</NavLink>
+              <NavLink className="nav-link" to="/addTechnician">CREATE A NEW TECHNICIAN</NavLink>
+              <NavLink className="nav-link" to="/listTechnicians">LIST ALL TECHNICIANS</NavLink>
+              <NavLink className="nav-link" to="/CreateAppointment">CREATE A NEW APPOINTMENT</NavLink>
+              <NavLink className="nav-link" to="/ListServiceAppointments">LIST OF NEW SERVICE APPOINTMENTS</NavLink>
+              <NavLink className="nav-link" to="/ServiceHistory">SERVICE HISTORY</NavLink>
             </li>
           </ul>
         </div>

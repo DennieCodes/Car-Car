@@ -8,6 +8,7 @@ import AddTechnicianForm from "./AddTechnicianForm"
 import ListTechnicians  from './ListTehnichians';
 import CreateAppointment from './CreateAppointment'
 import ListServiceAppointments from './ListServiceAppointments'
+import ServiceHistory from './ServiceHistory'
 function App() {
 	return (
 		<BrowserRouter>
@@ -23,6 +24,7 @@ function App() {
 					<Route path="/listTechnicians" element={<ListTechnicians />} />
 					<Route path="/CreateAppointment" element={<CreateAppointment />} />
 					<Route path="/ListServiceAppointments" element={<ListServiceAppointments />} />
+					<Route path="/ServiceHistory" element={<ServiceHistory />} />
 				</Routes>
 			</div>
 		</BrowserRouter>

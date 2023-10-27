@@ -1,5 +1,6 @@
 import React, {useEffect, useState } from 'react'
 import ListTechnicians  from './ListTehnichians'
+
 const CreateAppointment = () => {
     const [vin, setVin] = useState('')
     const [customer, setCustomer] = useState('')
