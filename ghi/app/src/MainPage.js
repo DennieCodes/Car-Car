@@ -1,3 +1,4 @@
+
 function MainPage() {
   return (
     <div className="px-4 py-5 my-5 text-center">
@@ -8,7 +9,21 @@ function MainPage() {
           management!
         </p>
       </div>
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="" class="d-block w-100" alt="..."></img>
     </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="..."></img>
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="..."></img>
+    </div>
+  </div>
+</div>
+    </div>
+    
   );
 }
 
