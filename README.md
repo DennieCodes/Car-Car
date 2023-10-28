@@ -30,9 +30,15 @@ In order to work with data you can create it in insomnia.
 
 
 # Summary
-```
+
 CarCar is a Mock Car Dealership App that branches off into three different microservices. There is the Sales department that deals with the Salespeople, the customer, and the cars themselves. They also use a value object from the Inventory. There is the Service department that deals with the Technicians, the customer, and also use a value object from Inventory. The last is the Inventory that deals with the cars themselves. Each of these have their own database and poll every 60 seconds to check for updates. This app uses Django in the backend with a React front. It also utilizes the Docker container system to run on.
-```
+
+**Inventory Options:**  List Manufacturers, List Car Models, Add a manufacturer, Add a Car Model, List Automobiles, Add an Automobile
+
+**Sales Options:** List Sales, Add a Sale, Add a Salesperson, List Salespeople, View Salespeople History, Add a Customer, List Customers
+
+**Service Options:** CREATE A NEW TECHNICIAN,LIST ALL TECHNICIANS, CREATE A NEW APPOINTMENT, LIST OF NEW SERVICEAPPOINTMENTS,SERVICE HISTORY
+
 
 # CRUD
 

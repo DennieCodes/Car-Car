@@ -6,10 +6,9 @@ import SalesForm from './pages/SalesForm';
 import SalesPersonForm from './pages/SalesPersonForm';
 import Customer from './pages/Customer';
 import Customers from './pages/Customers';
-import SalesPeople from './pages/Salespeople';
+import SalesPeople from './pages/SalesPeople';
 import Sales from './pages/Sales';
 import SalespersonHistory from './pages/SalespersonHistory';
-
 import InventoryMain from './pages/InventoryMain';
 import ManufacturerList from './pages/ManufacturerList';
 import AddManufacturer from './pages/AddManufacturer';
