@@ -7,7 +7,7 @@
 
 ## Steps to Run Project
 ```
-1. Fork the project located at https://gitlab.com/
+1. Fork the project located at  https://gitlab.com/sjp19-public-resources/sjp-2022-april/project-beta 
 
 1. Once the project is forked, clone via git clone https link.
 
@@ -96,9 +96,9 @@ Automobiles from inventory are polled every 60 seconds which creates an Autmobil
 
 ```
 Technician Model:
-  - "first_name",
-  - "last_name",
-  - "employee_id" inputs are received through form.
+- "first_name",
+- "last_name",
+- "employee_id" inputs are received through form.
 
 Appointment Model:
 - "vin", Vehicle vin.
@@ -109,11 +109,11 @@ Appointment Model:
 - "technician", the selected technician for the service appointment. Technician was a Foreign Key with Appointment as the related word.
 
 AutomobileVO Model:
-    -"sold", a boolean that would answer whether the car had been sold
-    - "vin", of the vehicle in inventory.
+-"sold", a boolean that would answer whether the car had been sold
+- "vin", of the vehicle in inventory.
 
 Relation of Inventory microservice:
-    -The Service microservice relied on the Inventory polling and we made a AutomobileVO that reflected all the inventories vin     numbers so that: 1. We could determine whether they were VIP, 2. The search bar in the Service History form also needed the Inventory.
+-The Service microservice relied on the Inventory polling and we made a AutomobileVO that reflected all the inventories vin numbers so that: 1. We could determine whether they were VIP, 2. The search bar in the Service History form also needed the Inventory.
 ```
 
 # Sales microservice
