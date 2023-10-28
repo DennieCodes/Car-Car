@@ -75,19 +75,19 @@ Technician Model:
   - "employee_id" inputs are received through form.
 
 Appointment Model:
-    - "vin", Vehicle vin.
-    - "customer_name", vehicle ownwer name.
-    - "date_and_time", scheduled service appointment date and time; inputs received thorugh form
-    - "reason", reason for service appointment.
-    - "dealership_purchase", determines whether the vehicle vin for the service appointment matches inventory vehicle vin, for access to VIP treatment.
-    - "technician", the selected technician for the service appointment. Technician was a Foreign Key with Appointment as the related word.
+- "vin", Vehicle vin.
+- "customer_name", vehicle ownwer name.
+- "date_and_time", scheduled service appointment date and time; inputs received thorugh form
+- "reason", reason for service appointment.
+- "dealership_purchase", determines whether the vehicle vin for the service appointment matches inventory vehicle for access to VIP treatment.
+- "technician", the selected technician for the service appointment. Technician was a Foreign Key with Appointment as the related word.
 
 AutomobileVO Model:
     -"sold", a boolean that would answer whether the car had been sold
     - "vin", of the vehicle in inventory.
 
 Relation of Inventory microservice:
-    -The Service microservice relied on the Inventory polling and we made a AutomobileVO that reflected all the inventories vin     numbers so that: 1. We could determine whether they were VIP, 2. The search bar in the Service History form also needed the Inventory.
+-The Service microservice relied on the Inventory polling and we made a AutomobileVO that reflected all the inventories vin     numbers so that: 1. We could determine whether they were VIP, 2. The search bar in the Service History form also needed the Inventory.
 ```
 
 
