@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-function SalesMain() {
+function InventoryMain() {
   return (
     <>
 			<div className="container">
@@ -33,4 +33,4 @@ function SalesMain() {
   )
 }
 
-export default SalesMain
+export default InventoryMain
