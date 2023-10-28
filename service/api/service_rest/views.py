@@ -16,7 +16,7 @@ def api_Technician_list(request):
             safe=False,
         )
     else:
-        # try:
+
         content = json.loads(request.body)
         technician = Technician.objects.create(**content)
         return JsonResponse(
@@ -24,12 +24,6 @@ def api_Technician_list(request):
             encoder=TechnicianEncoder,
             safe=False,
         )
-        # except:
-        #     response = JsonResponse(
-        #         {"Message": "Could not create technician"}
-        #     )
-        #     response.status_code = 400
-        #     return response
 
 
 @require_http_methods(["GET", "PUT", "DELETE"])
@@ -55,7 +49,7 @@ def api_Technician_detail(request, pk):
         except Technician.DoesNotExist:
 
             return JsonResponse({"message": "Auto technician does not exist"}, status = 404)
-    else:  # "PUT"
+    else: 
         try:
             content = json.loads(request.body)
             technician = Technician.objects.get(id=pk)
@@ -94,7 +88,6 @@ def api_Appointments_list(request):
             inventory = AutomobileVO.objects.all().values_list('vin', flat=True)
             if content["vin"] in inventory:
                 content["dealership_purchase"] = True
-            # print(inventory, "this is my test")
             appointments = Appointment.objects.create(**content)
             return JsonResponse(
                 appointments,

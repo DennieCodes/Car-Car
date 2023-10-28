@@ -1,6 +1,6 @@
 from common.json import ModelEncoder
 from .models import Technician, Appointment, AutomobileVO
-# from common.json import DateEncoder
+
 
 
 class TechnicianEncoder(ModelEncoder):
