@@ -47,11 +47,12 @@ const handleSubmit = (event) => {
     fetch(TechnicianUrl, fetchConfig)
         .then(response => response.json())
         .then(() => {
-            setValues(values)
-            setSubmitted(true)
+            setValues({
+         
             // first_name =""
             // last_name =""
             // employee_id =""
+            })
         })
         .catch(e => console.log('error:', e))
 }
@@ -92,7 +93,7 @@ return (
               <label htmlFor="employee_number">employee number</label>
               {submitted && !values.employee_number ? <span>Please enter an employee number</span> : null}
             </div>
-            <button className="btn btn-success buttons">Create</button>
+            <button className="btn btn-primary buttons">Create</button>
           </form>
         </div>
       </div>

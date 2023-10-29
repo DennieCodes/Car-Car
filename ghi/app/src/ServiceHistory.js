@@ -32,7 +32,7 @@ import {useEffect, useState} from "react"
             fetch('http://localhost:8080/api/appointments/')
                 .then(response => response.json())
                 .then(data => {
-                    // console.log(data)
+                    console.log(data)
                     setService_Appointments(data.appointments);
                 })
                 .catch(e => console.error('error: ', e));
@@ -53,7 +53,7 @@ import {useEffect, useState} from "react"
                         )
                       })}
             </select>
-            <button>Search</button>
+            <button className = "btn btn-primary buttons">Search</button>
         </form>
         <table className="table table-striped">
              <thead>

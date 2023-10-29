@@ -16,13 +16,13 @@ import CarModels from './pages/CarModels';
 import AddModel from './pages/AddModel';
 import Automobiles from './pages/Automobiles';
 import AddAutomobile from './pages/AddAutomobile';
-
 import ServiceMain from './pages/ServiceMain';
 import AddTechnicianForm from "./AddTechnicianForm"
 import ListTechnicians  from './ListTehnichians';
 import CreateAppointment from './CreateAppointment'
 import ListServiceAppointments from './ListServiceAppointments'
 import ServiceHistory from './ServiceHistory'
+import"./index.css"
 function App() {
 	return (
 		<BrowserRouter>

@@ -85,7 +85,7 @@ return(
                     <td>{technician.first_name} {technician.last_name}</td>
                     <td>
                       <button className=" btn-danger buttons" value = {service.id} onClick = {handleSubmitCancel}>Canceled</button>
-                      <button  className=" btn-success buttons" value = {service.id} onClick = {handleSubmitFinish}>Finished</button>
+                      <button  className=" btn-primary buttons" value = {service.id} onClick = {handleSubmitFinish}>Finished</button>
                     </td>
                   </tr>
                     ); 
@@ -95,7 +95,7 @@ return(
               
   
         <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
-        <Link to ="/CreateAppointment/" className="btn btn-success buttons btn-med px-4 gap-3">Create Service Appointment</Link>
+        <Link to ="/CreateAppointment/" className="btn btn-primary buttons btn-med px-4 gap-3">Create Service Appointment</Link>
         </div>
 
     </div>
