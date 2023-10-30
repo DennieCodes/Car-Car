@@ -24,9 +24,12 @@ btn {
 body {
   height: 1100px;
   background-color: rgb(60, 117, 240); /* For browsers that do not support gradients */
-  background-image: linear-gradient(rgb(231, 236, 252), rgb(41, 136, 245));
+  background-image: linear-gradient(rgb(231, 236, 252), rgb(96, 169, 252));
 }
 #mainpic {
   width:100px;
+  text-shadow: 2px 2px 2px 2px black;
+}
+.navbar-brand {
   text-shadow: 2px 2px 2px 2px black;
 }

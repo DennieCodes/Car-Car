@@ -22,7 +22,7 @@ import ListTechnicians  from './ListTehnichians';
 import CreateAppointment from './CreateAppointment'
 import ListServiceAppointments from './ListServiceAppointments'
 import ServiceHistory from './ServiceHistory'
-import"./index.css"
+import "./index.css"
 function App() {
 	return (
 		<BrowserRouter>
