@@ -25,7 +25,7 @@ function MainPage() {
 			</div>
 
 			<div>
-				<h1 classNameName="lead mb-4">
+				<h1 className="lead mb-4">
 					<i>
 						<b>The premiere solution for automobile dealership management!</b>{' '}
 					</i>
