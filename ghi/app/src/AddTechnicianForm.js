@@ -5,7 +5,7 @@ function AddTechnicianForm() {
 
 const [values, setValues] = useState({
     first_name: '',
-    lastName: '',
+    last_name: '',
     employee_id: "",
 })
 
