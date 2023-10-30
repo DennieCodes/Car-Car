@@ -54,17 +54,6 @@ function AddTechnicianForm() {
 				employee_id: '',
 			});
 		}
-
-		// fetch(TechnicianUrl, fetchConfig)
-		// 	.then((response) => response.json())
-		// 	.then(() => {
-		// 		setValues({
-		// 			first_name: '',
-		// 			last_name: '',
-		// 			employee_id: '',
-		// 		});
-		// 	})
-		// 	.catch((e) => console.log('error:', e));
 	};
 
 	return (
