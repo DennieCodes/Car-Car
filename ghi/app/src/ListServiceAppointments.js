@@ -28,7 +28,6 @@ const ListServiceAppointments = () => {
 	const updateService = (id, status) => {
 		const updatedAppointments = appointments.map((ele) => {
 			if (String(ele.id) === id) {
-				console.log('THE SAME');
 				ele.status = status;
 			}
 
