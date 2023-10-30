@@ -47,16 +47,14 @@ const handleSubmit = (event) => {
     fetch(TechnicianUrl, fetchConfig)
         .then(response => response.json())
         .then(() => {
-            setValues({
-         
-            // first_name =""
-            // last_name =""
-            // employee_id =""
-            })
+          setValues({
+            first_name: '',
+            last_name: '',
+            employee_id: '',
+        });
         })
         .catch(e => console.log('error:', e))
 }
-
 
 return (
     <div className="row">

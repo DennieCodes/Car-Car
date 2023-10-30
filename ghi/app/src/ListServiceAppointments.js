@@ -21,7 +21,6 @@ const ListServiceAppointments = () => {
 
 		const response = await fetch(url, fetchConfig);
 		if (response.ok) {
-			// const service = await response.json();
 			updateService(id, 'canceled');
 		}
 	};
@@ -29,14 +28,11 @@ const ListServiceAppointments = () => {
 	const updateService = (id, status) => {
 		const updatedAppointments = appointments.map((ele) => {
 			if (String(ele.id) === id) {
-				console.log('THE SAME');
 				ele.status = status;
 			}
 
 			return ele;
 		});
-
-		console.log('Updated: ', updatedAppointments);
 
 		setAppointments(updatedAppointments);
 	};
@@ -50,7 +46,6 @@ const ListServiceAppointments = () => {
 
 		const response = await fetch(url, fetchConfig);
 		if (response.ok) {
-			// const service = await response.json();
 			updateService(id, 'finished');
 		}
 	};

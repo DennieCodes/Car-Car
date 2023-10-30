@@ -4,9 +4,9 @@ function InventoryMain() {
   return (
     <>
 			<div className="container">
-        <h2>Inventory Options</h2>
-        <div>
-          <ul className="navbar-nav">
+        <h1><b>Inventory Options</b></h1>
+        <div className= "text-white">
+          <ul className="navbar-nav fs-4">
             <li className="nav-item">
               <NavLink className="nav-link" to="/manufacturers">List Manufacturers</NavLink>
             </li>

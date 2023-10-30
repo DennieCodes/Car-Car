@@ -4,9 +4,9 @@ function SalesMain() {
   return (
     <>
 			<div className="container">
-        <h2>Sales Options</h2>
+        <h1><b>Sales Options</b></h1>
         <div>
-          <ul className="navbar-nav">
+          <ul className="navbar-nav fs-4">
             <li className="nav-item">
               <NavLink className="nav-link" to="/saleslist">List Sales</NavLink>
             </li>
