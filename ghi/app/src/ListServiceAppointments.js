@@ -27,7 +27,8 @@ const ListServiceAppointments =() =>{
     const response = await fetch(url, fetchConfig);
     if(response.ok){
       const service = await response.json()
-      console.log(service)
+      console.log(service);
+    
     }
 
   }
@@ -42,10 +43,12 @@ const ListServiceAppointments =() =>{
     const response = await fetch(url, fetchConfig);
     if(response.ok){
       const service = await response.json()
-      console.log(service)
+      console.log(service);
+       
     }
 
   }
+
 
 
 
@@ -84,7 +87,7 @@ return(
                     <td>{service.reason}</td>
                     <td>{technician.first_name} {technician.last_name}</td>
                     <td>
-                      <button className=" btn-danger buttons" value = {service.id} onClick = {handleSubmitCancel}>Canceled</button>
+                      <button className=" btn-danger buttons"value = {service.id} onClick = {handleSubmitCancel}>Canceled</button>
                       <button  className=" btn-primary buttons" value = {service.id} onClick = {handleSubmitFinish}>Finished</button>
                     </td>
                   </tr>
