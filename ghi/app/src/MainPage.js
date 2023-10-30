@@ -1,4 +1,4 @@
-import a from "../src/pages/pics/a.PNG"
+import nlogo from "../src/pages/pics/nlogo.png"
 import shop from "./pages/pics/shop.jpeg"
 import happy from "./pages/pics/happy.jpeg"
 import inventory from "./pages/pics/inventory.jpeg"
@@ -8,7 +8,7 @@ function MainPage() {
   return (
     <div className="px-5 py-1 my-1 text-center">
       {/* <h1 className="display-5 fw-bold">CarCar</h1> */}
-      <img src={a} class="mx-auto d-block w-50 text-center" id="mainpic"></img> 
+      <img src={nlogo} class="mx-auto d-block w-50 text-center" id="mainpic"></img> 
       <div className="col-lg-6 mx-auto">
         <br></br>
      
@@ -19,7 +19,7 @@ function MainPage() {
       </div>
 
 
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+ <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-interval="2000">
   <div class="carousel-inner col-4 text-lg">
 
     <div class="carousel-item active text-lg">
@@ -47,7 +47,7 @@ function MainPage() {
     </div>
 
     </div>
-  </div>
+  </div> 
 </div>
     
     
