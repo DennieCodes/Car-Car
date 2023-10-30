@@ -4,7 +4,7 @@ function Customers() {
   const [customers, setCustomers] = useState("");
 
   const handleDeleteCustomer = async (e) => {
-    const deleteUrl = `http://localhost:8090/api/salespeople/${e.target.value}/`;
+    const deleteUrl = `http://localhost:8090/api/customers/${e.target.value}/`;
 
     const fetchConfig = {
 			method: 'delete',
