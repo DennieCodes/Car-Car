@@ -31,7 +31,7 @@ function SalespersonHistory() {
   }, []);
 
   return (
-    <div>
+    <div className="shadow p-4 mt-4">
       <h1>Salesperson History</h1>
 
       <form id="create-sale-form" onSubmit={handleSubmit}>

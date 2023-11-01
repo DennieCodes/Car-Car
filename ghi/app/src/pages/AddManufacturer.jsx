@@ -31,7 +31,7 @@ function AddManufacturer() {
 
   return (
     <div className="shadow p-4 mt-4">
-			<h3>Add a Manufacturer</h3>
+			<h1 className="mb-3">Add a Manufacturer</h1>
       <form id="create-salesperson-form" onSubmit={handleSubmit}>
         <div className="form-floating mb-2">
           <input

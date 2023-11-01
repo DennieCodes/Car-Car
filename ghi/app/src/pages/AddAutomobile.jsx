@@ -63,7 +63,7 @@ function AddAutomobile() {
 
   return (
     <div className="shadow p-4 mt-4">
-			<h3>Add an automobile to inventory</h3>
+			<h1 className="mb-3">Add an automobile to inventory</h1>
       <form id="create-salesperson-form" onSubmit={handleSubmit}>
         <div className="form-floating mb-2">
           <input

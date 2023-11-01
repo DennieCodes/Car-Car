@@ -33,7 +33,8 @@ function Customers() {
   }, []);
 
   return (
-    <div>
+    <div className="shadow p-4 mt-4">
+      <h1 className="mb-2">Customer List</h1>
       <table className="table table-striped">
         <thead>
           <tr>

@@ -100,7 +100,7 @@ function SalesForm() {
 
   return (
     <div className="shadow p-4 mt-4">
-			<h3>Add a Sale</h3>
+			<h1 className="mb-3">Add a Sale</h1>
       <form id="create-sale-form" onSubmit={handleSubmit}>
         <div className="form-floating mb-2">
           <input

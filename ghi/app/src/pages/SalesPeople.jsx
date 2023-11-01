@@ -34,7 +34,8 @@ function SalesPeople() {
   }, []);
 
   return (
-    <div>
+    <div className="shadow p-4 mt-4">
+      <h1 className="mb-2">Salesperson List</h1>
       <table className="table table-striped">
         <thead>
           <tr>

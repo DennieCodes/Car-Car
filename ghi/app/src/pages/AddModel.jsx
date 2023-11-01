@@ -60,7 +60,7 @@ function AddModel() {
 
   return (
     <div className="shadow p-4 mt-4">
-			<h3>Create a Vehicle Model</h3>
+			<h1 className="mb-3">Create a Vehicle Model</h1>
       <form id="create-salesperson-form" onSubmit={handleSubmit}>
         <div className="form-floating mb-2">
           <input

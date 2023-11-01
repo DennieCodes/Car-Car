@@ -18,8 +18,8 @@ function ManufacturerList() {
   }, []);
 
   return (
-    <div>
-      <h1 className="mt-4">Manufacturers</h1>
+    <div className="shadow p-4 mt-4">
+      <h1 className="mt-4">Manufacturers List</h1>
       <table className="table table-striped">
         <thead>
           <tr>

@@ -39,7 +39,7 @@ function SalesPersonForm() {
 
   return (
     <div className="shadow p-4 mt-4">
-			<h3>Add a Salesperson</h3>
+			<h3 className="mb-2">Add a Salesperson</h3>
       <form id="create-salesperson-form" onSubmit={handleSubmit}>
         <div className="form-floating mb-2">
           <input

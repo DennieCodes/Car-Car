@@ -18,8 +18,8 @@ function Automobiles() {
   }, []);
 
   return (
-    <div>
-      <h1 className="mt-4">Car Models</h1>
+    <div className="shadow p-4 mt-4">
+      <h1 className="mb-3">Automobile List</h1>
       <table className="table table-striped">
         <thead>
           <tr>
