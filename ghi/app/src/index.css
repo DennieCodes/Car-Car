@@ -22,9 +22,9 @@ btn {
   text-shadow: 2px 2px 2px black;
 }
 body {
-  height: 1100px;
+  height: 1200px;
   background-color: rgb(60, 117, 240); /* For browsers that do not support gradients */
-  background-image: linear-gradient(rgb(231, 236, 252), rgb(96, 169, 252));
+  background-image: linear-gradient(rgb(243, 246, 253), rgb(131, 188, 253));
 
 }
 #mainpic {

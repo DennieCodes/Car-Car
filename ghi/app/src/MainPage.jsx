@@ -20,28 +20,28 @@ function MainPage() {
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
   </div>
   <div class="carousel-inner">
-    <div class="carousel-item active">
+    <div class="carousel-item active"  data-bs-interval="2000">
       <img src={shop} class=" d-block w-75 mx-auto" alt="..." />
       <div class="carousel-caption d-none d-md-block text-shadow-dark">
         <h2 class="ccaption">State-of-the-art Service shop</h2>
         {/* <p>Some representative placeholder content for the first slide.</p> */}
       </div>
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item"data-bs-interval="2000">
       <img src={happy} class="d-block w-75 mx-auto" alt="..." />
       <div class="carousel-caption d-none d-md-block">
         <h2  class="ccaption">You'll love our Sales people!</h2>
         {/* <p>Some representative placeholder content for the second slide.</p> */}
       </div>
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item"data-bs-interval="2000">
       <img src={service} class="d-block  w-75 mx-auto" alt="..." />
       <div class="carousel-caption d-none d-md-block">
         <h2 class="ccaption">And you will love our Technicians!</h2>
         {/* <p>Some representative placeholder content for the third slide.</p> */}
       </div>
     </div>
-    <div class="carousel-item">
+    <div class="carousel-item"data-bs-interval="2000">
       <img src={inventory}class="d-block w-75 mx-auto" alt="..." />
       <div class="carousel-caption d-none d-md-block">
         <h2 class="ccaption">Come look at our selection!</h2>

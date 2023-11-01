@@ -4,7 +4,7 @@ function SalesForm() {
   const [automobiles, setAutomobiles] = useState("");
   const [salesPersons, setSalesPersons] = useState("");
   const [customers, setCustomers] = useState("");
-
+  const [ message, setMessage ] = useState("")
   const [price, setPrice] = useState(0);
   const [automobile, setAutomobile] = useState("");
   const [salesperson, setSalesperson] = useState("");
@@ -39,6 +39,7 @@ function SalesForm() {
       if (customerResponse.ok) {
         const data = await customerResponse.json();
         setCustomers(data.customers);
+       
       }
     } catch (error) {
       console.error(error);
@@ -95,6 +96,7 @@ function SalesForm() {
       setAutomobile("");
       setSalesperson("");
       setCustomer("");
+      setMessage("Success, you just created a Sale")
     }
   }
 
@@ -103,6 +105,7 @@ function SalesForm() {
     <div className="offset-3 col-6">
     <div className="shadow p-4 mt-4">
 			<h1 className="mb-3">Add a Sale</h1>
+      {message && <div className="alert alert-success mt-3">{message}</div>}
       <form id="create-sale-form" onSubmit={handleSubmit}>
         <div className="form-floating mb-2">
           <input
