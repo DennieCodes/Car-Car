@@ -36,7 +36,7 @@ function CarModels() {
               <tr key={car.id}>
                 <td>{car.name}</td>
                 <td>{manufacturer.name}</td>
-                <td><img className="img-fluid image-size" src={car.picture_url} alt={`${manufacturer.name} ${car.name}`}/></td>
+                <td><img className="img-fluid img-100" src={car.picture_url} alt={`${manufacturer.name} ${car.name}`}/></td>
               </tr>
             );
           })}

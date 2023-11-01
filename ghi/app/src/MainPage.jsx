@@ -6,16 +6,16 @@ import service from './pages/pics/service.jpeg';
 import './index.css';
 function MainPage() {
 	return (
-		<div className="px-5 py-1 my-1 text-center">
-			{/* <h1 className="display-5 fw-bold">CarCar</h1> */}
-			<img
+		<div className="px-6 py-1 my-1 text-center">
+			 <h1 className="display-5 fw-bold">CarCar</h1> 
+			{/* <img
 				src={nlogo}
 				className="mx-auto d-block w-50 text-center"
 				id="mainpic"
 				alt="Auto Dealership"
-			></img>
-			<br></br>
-			 <div className="col-lg-6 mx-auto w-100">
+			></img> */}
+			{/* <br></br> */}
+			 <div className="col-lg-6 mx-auto w-75">
 				<h3>The premiere solution for automobile dealership management!</h3>
 			</div> 
 			<br></br>
@@ -44,7 +44,7 @@ function MainPage() {
     <div class="carousel-item">
       <img src={service} class="d-block  w-75 mx-auto" alt="..." />
       <div class="carousel-caption d-none d-md-block">
-        <h2 class="ccaption">And you will love our employees!</h2>
+        <h2 class="ccaption">And you will love our Technicians!</h2>
         {/* <p>Some representative placeholder content for the third slide.</p> */}
       </div>
     </div>
