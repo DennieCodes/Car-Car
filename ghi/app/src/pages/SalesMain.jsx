@@ -7,14 +7,14 @@ import saleshistory from './pics/sales/sales-history--pexels-pixabay-265087.jpg'
 import customers from './pics/sales/customers--pexels-gustavo-fring-4173193.jpg';
 import addCustomer from './pics/sales/add-customer--pexels-gustavo-fring-4895413.jpg';
 
-import './styles/gallery.css';
+import './styles/gallery.css'; //add gallery
 
 function SalesMain() {
   return (
     <>
 			<div className="container">
         <h1 className="mb-3 mt-3">Sales Options</h1>
-        <div className="row">
+        <div className="row"> {/*start*/}
             <div className="col-sm-4 mb-4">
               <div className="card p-2 shadow">
                 <img src={carsales} className="gallery-images" alt="Two people shakings hands in front of a car"/>

@@ -42,6 +42,8 @@ function Customer() {
   }
 
   return (
+    <div className="row">
+    <div className="offset-3 col-6">
     <div className="shadow p-4 mt-4">
 			<h1 className="mb-3">Add a Customer</h1>
       <form id="create-salesperson-form" onSubmit={handleSubmit}>
@@ -100,6 +102,8 @@ function Customer() {
         <button className='mt-3 btn btn-primary'>Add a Customer</button>
       </form>
     </div>
+  </div>
+</div>
   )
 }
 

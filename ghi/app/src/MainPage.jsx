@@ -37,7 +37,7 @@ function MainPage() {
     <div class="carousel-item">
       <img src={service} class="d-block  w-75 mx-auto" alt="..." />
       <div class="carousel-caption d-none d-md-block">
-        <h2 class="ccaption">And you will love our employees!</h2>
+        <h2 class="ccaption">And you will love our Technicians!</h2>
         {/* <p>Some representative placeholder content for the third slide.</p> */}
       </div>
     </div>

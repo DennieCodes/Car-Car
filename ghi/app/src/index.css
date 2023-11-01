@@ -25,6 +25,7 @@ body {
   height: 1100px;
   background-color: rgb(60, 117, 240); /* For browsers that do not support gradients */
   background-image: linear-gradient(rgb(231, 236, 252), rgb(96, 169, 252));
+
 }
 #mainpic {
   width:100px;
@@ -43,8 +44,13 @@ body {
   font-size: 1em;
   text-shadow: 2px 2px 2px black;
 }
-.image-size {
+#image-size {
   width: 100px; /* or whatever size you desire */
   height: 100px;
   object-fit: cover; /* to ensure the aspect ratio of the images is maintained */
+}
+.img-100 {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;  
 }

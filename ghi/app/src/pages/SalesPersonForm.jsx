@@ -38,6 +38,8 @@ function SalesPersonForm() {
   }
 
   return (
+    <div className="row">
+    <div className="offset-3 col-6">
     <div className="shadow p-4 mt-4">
 			<h3 className="mb-2">Add a Salesperson</h3>
       <form id="create-salesperson-form" onSubmit={handleSubmit}>
@@ -83,6 +85,8 @@ function SalesPersonForm() {
         <button className='mt-3 btn btn-primary'>Add Salesperson</button>
       </form>
     </div>
+  </div>
+  </div>
   )
 }
 
