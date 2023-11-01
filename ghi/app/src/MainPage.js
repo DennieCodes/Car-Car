@@ -14,65 +14,13 @@ function MainPage() {
 				id="mainpic"
 				alt="Auto Dealership"
 			></img>
-			<div className="col-lg-6 mx-auto">
-				<br></br>
-
-				<h1 className="lead mb-4">
-					<i>
-						<b>The premiere solution for automobile dealership management!</b>{' '}
-					</i>
-				</h1>
-			</div>
-
-			{/* <div>
-				<h1 classNameName="lead mb-4">
-					<i>
-						<b>The premiere solution for automobile dealership management!</b>{' '}
-					</i>
-				</h1>
-			</div> */}
-
-			{/* <div
-				id="carouselExampleSlidesOnly"
-				className="carousel slide"
-				data-bs-ride="carousel"
-				data-interval="2000"
-			>
-				<div className="carousel-inner col-4 text-lg">
-					<div className="carousel-item">
-						<div className="font-weight-bold font-italic text-primary text-lg">
-							<h3>You will love our Inventory!</h3>
-							<img src={happy} className="mx-auto d-block w-75" alt="..."></img>
-						</div>
-					</div>
-
-					<div className="carousel-item">
-						<div className="font-weight-bold font-italic text-primary">
-							<h3>You'll love our Sales People!</h3>
-							<img
-								src={service}
-								className="mx-auto d-block w-75"
-								alt="..."
-							></img>
-						</div>
-					</div>
-
-					<div className="carousel-item">
-						<div className="font-weight-bold font-italic text-primary text-lg">
-							<h3>Come look at our Selection</h3>
-							<img
-								src={inventory}
-								className="mx-auto d-block w-75"
-								alt="..."
-							></img>
-						</div>
-					</div>
-				</div>
-			</div> */}
-  
-
-  <div id="carouselExampleCaptions" class="carousel slide">
-  <div class="carousel-indicators">
+			<br></br>
+			 <div className="col-lg-6 mx-auto w-100">
+				<h3>The premiere solution for automobile dealership management!</h3>
+			</div> 
+			<br></br>
+	 <div id="carouselExampleCaptions" class="carousel slide">
+ 	<div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
