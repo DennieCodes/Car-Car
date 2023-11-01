@@ -7,17 +7,10 @@ import './index.css';
 function MainPage() {
 	return (
 		<div className="px-5 py-1 my-1 text-center">
-			{/* <h1 className="display-5 fw-bold">CarCar</h1> */}
-			<img
-				src={nlogo}
-				className="mx-auto d-block w-50 text-center"
-				id="mainpic"
-				alt="Auto Dealership"
-			></img>
-			<br></br>
+			<h1 className="display-5 fw-bold">CarCar</h1>
 			 <div className="col-lg-6 mx-auto w-100">
 				<h3>The premiere solution for automobile dealership management!</h3>
-			</div> 
+			</div>
 			<br></br>
 	 <div id="carouselExampleCaptions" class="carousel slide">
  	<div class="carousel-indicators">
