@@ -35,9 +35,9 @@ function AddModel() {
     const data = {};
     data.name = name;
     data.picture_url = pictureUrl;
-    data.manufacturer = manufacturer;
+    data.manufacturer_id = manufacturer;
 
-    const url = "http://localhost:8100/api/manufacturers/";
+    const url = "http://localhost:8100/api/models/";
     const fetchConfig = {
 			method: 'post',
 			body: JSON.stringify(data),
@@ -46,7 +46,8 @@ function AddModel() {
 			},
 		};
 
-    const response = await fetch(url, fetchConfig);
+    try {
+      const response = await fetch(url, fetchConfig);
 
     if (response.ok) {
       const newModel = await response.json();
@@ -55,6 +56,9 @@ function AddModel() {
       setName("");
       setPictureUrl("");
       setManufacturer("");
+    }
+    } catch (error) {
+      console.error(error);
     }
   }
 
@@ -77,14 +81,14 @@ function AddModel() {
         <div className="form-floating mb-2">
           <input
             onChange={handleChangePictureUrl}
-            value={name}
+            value={pictureUrl}
             className="form-control"
             required
             type="text"
-            name="name"
-            id="name"
+            name="pictureUrl"
+            id="pictureUrl"
           />
-          <label htmlFor="name">Name</label>
+          <label htmlFor="pictureUrl">Picture URL</label>
         </div>
 
         <div className='mb-3'>
