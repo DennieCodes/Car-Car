@@ -33,3 +33,4 @@ class AutomobileVOAdmin(admin.ModelAdmin):
             "sold", 
          
          )
+
