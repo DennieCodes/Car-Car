@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-
+import "../../src/index.css"
 function CarModels() {
   const [ carModels, setCarModels ] = useState("")
-
+  
   const fetchData = async() => {
     const response = await fetch("http://localhost:8100/api/models/");
 
@@ -10,6 +10,7 @@ function CarModels() {
       const data = await response.json();
 
       setCarModels(data.models);
+   
     }
   };
 
@@ -35,7 +36,7 @@ function CarModels() {
               <tr key={car.id}>
                 <td>{car.name}</td>
                 <td>{manufacturer.name}</td>
-                <td><img className="img-fluid" src={car.picture_url} alt={`${manufacturer.name} ${car.name}`}/></td>
+                <td><img className="img-fluid image-size" src={car.picture_url} alt={`${manufacturer.name} ${car.name}`}/></td>
               </tr>
             );
           })}

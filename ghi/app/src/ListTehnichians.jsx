@@ -35,6 +35,7 @@ function ListTechnicians() {
 
     return (
 		<div>
+            <h1 className= "mb-3">List all Technicians</h1>
         
             <table className="table table-striped">
 					<thead>

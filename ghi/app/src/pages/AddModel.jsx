@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 
 function AddModel() {
   const [ manufacturers, setManufacturers ] = useState("");
-
+  const [ message, setMessage ] = useState("")
   const [ name, setName ] = useState("");
   const [ pictureUrl, setPictureUrl ] = useState("");
   const [ manufacturer, setManufacturer ] = useState("");
@@ -56,6 +56,8 @@ function AddModel() {
       setName("");
       setPictureUrl("");
       setManufacturer("");
+      setMessage("Success, you just created a car model")
+      
     }
     } catch (error) {
       console.error(error);
@@ -64,9 +66,11 @@ function AddModel() {
 
   return (
     <div className="shadow p-4 mt-4">
-			<h1 className="mb-3">Create a Vehicle Model</h1>
+			<h1>Create a Vehicle Model</h1>
+      {message && <div className="alert alert-success mt-3">{message}</div>}
       <form id="create-salesperson-form" onSubmit={handleSubmit}>
         <div className="form-floating mb-2">
+
           <input
             onChange={handleChangeName}
             value={name}
@@ -100,7 +104,8 @@ function AddModel() {
             className="form-select"
             onChange={handleChangeManufacturer}
           >
-            <option value="">Choose an automobile</option>
+            <option value="">Choose an manufacturer</option>
+          
             {manufacturers &&
               manufacturers.map((company) => {
                 return (

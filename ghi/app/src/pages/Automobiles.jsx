@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 function Automobiles() {
   const [ automobiles, setAutomobiles ] = useState("");
-
   const fetchData = async() => {
     const response = await fetch("http://localhost:8100/api/automobiles/");
 
@@ -10,6 +9,7 @@ function Automobiles() {
       const data = await response.json();
 
       setAutomobiles(data.autos);
+  
     }
   };
 

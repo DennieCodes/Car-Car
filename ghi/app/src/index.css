@@ -28,8 +28,23 @@ body {
 }
 #mainpic {
   width:100px;
-  text-shadow: 2px 2px 2px 2px black;
+  box-shadow: 5px 5px 5px 5px black;
 }
 .navbar-brand {
   text-shadow: 2px 2px 2px 2px black;
+}
+.carousel-caption {
+  bottom: initial; /* Reset the default positioning */
+  top: 0; /* Position it at the top */
+  font-size:40px;
+  text-shadow:2px 2px 2px 2px black;
+}
+.ccaption {
+  font-size: 1em;
+  text-shadow: 2px 2px 2px black;
+}
+.image-size {
+  width: 100px; /* or whatever size you desire */
+  height: 100px;
+  object-fit: cover; /* to ensure the aspect ratio of the images is maintained */
 }

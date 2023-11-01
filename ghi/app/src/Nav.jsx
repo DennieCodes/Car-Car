@@ -1,11 +1,12 @@
 import { NavLink } from 'react-router-dom';
 import "./index.css"
+import aaaaa from "./pages/pics/aaaaa.PNG"
 function Nav() {
 	return (
 		<nav className="navbar navbar-expand-lg navbar-dark bg-primary">
 			<div className="container-fluid">
 				<NavLink className="navbar-brand" to="/">
-					CarCar
+				<img src={aaaaa} alt="CarCar Logo" width="50" height="auto"/>
 				</NavLink>
 				<button
 					className="navbar-toggler"
@@ -21,17 +22,17 @@ function Nav() {
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav me-auto mb-2 mb-lg-0">
 						<li className="nav-item">
-							<NavLink className="nav-link text-white text-shadow-black" to="/sales">
+							<NavLink className="nav-link text-white" to="/sales">
 								Sales
 							</NavLink>
 						</li>
 						<li className="nav-item">
-							<NavLink className="nav-link text-white text-shadow-black" to="/service">
+							<NavLink className="nav-link text-white" to="/service">
 								Service
 							</NavLink>
 						</li>
 						<li className="nav-item">
-							<NavLink className="nav-link text-white text-shadow-black" to="/inventory">
+							<NavLink className="nav-link text-white" to="/inventory">
 								Inventory
 							</NavLink>
 						</li>
