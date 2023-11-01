@@ -52,9 +52,10 @@ const ListServiceAppointments = () => {
 
 	return (
 		<div>
-			<h1 className="large-heading-dark text-center mb-20">
+			<h1 className="large-heading-dark mb-20">
 				List of Upcoming Service Appointments
 			</h1>
+			<br></br>
 			<table className="table table-striped">
 				<thead>
 					<tr>

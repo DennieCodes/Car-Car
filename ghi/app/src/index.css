@@ -43,3 +43,8 @@ body {
   font-size: 1em;
   text-shadow: 2px 2px 2px black;
 }
+.image-size {
+  width: 100px; /* or whatever size you desire */
+  height: 100px;
+  object-fit: cover; /* to ensure the aspect ratio of the images is maintained */
+}

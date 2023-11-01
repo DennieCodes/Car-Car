@@ -64,12 +64,13 @@ function ServiceHistory() {
 
 	return (
 		<div>
+			 <h1 className= "mb-3">Search for Appointment by VIN</h1>
 			<form onSubmit={handleSubmit}>
 				<select
 					value={vin}
 					id="vin"
 					name="vin"
-					className="form-select"
+					className="form-select w-50"
 					onChange={handleVinChange}
 				>
 					<option value="">Search by Vin</option>
@@ -82,16 +83,19 @@ function ServiceHistory() {
 							);
 						})}
 				</select>
+				<div>
 				<button
 					onClick={handleSubmitSearch}
-					className="btn btn-primary buttons"
+					className="btn btn-primary buttons mx-3 my-3"
 				>
 					Search
 				</button>
 				<button onClick={handleSubmitClear} className="btn btn-primary buttons">
 					Clear Search
 				</button>
+			</div>
 			</form>
+			<h1 className='mb-3'>Service History</h1>
 			<table className="table table-striped">
 				<thead>
 					<tr>

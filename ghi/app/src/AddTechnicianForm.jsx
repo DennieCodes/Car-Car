@@ -63,7 +63,7 @@ function AddTechnicianForm() {
 					<h1>Create a new Auto Technician</h1>
 					<form onSubmit={handleSubmit} id="Add-Technician-form">
 						{submitted && valid ? (
-							<div className="dark-message">
+							<div className="alert alert-success mt-3">
 								Success! Thank you for creating an Auto Technician
 							</div>
 						) : null}

@@ -6,6 +6,7 @@ function AddAutomobile() {
   const [ year, setYear ] = useState("");
   const [ vin, setVin ] = useState("");
   const [ model, setModel ] = useState("");
+  const [ message, setMessage ] = useState("");
 
   const handleChangeColor = (e) => setColor(e.target.value);
   const handleChangeYear = (e) => setYear(e.target.value);
@@ -58,12 +59,14 @@ function AddAutomobile() {
       setYear("");
       setVin("");
       setModel("");
+      setMessage('Success! You just create an Automobile.')
     }
   }
 
   return (
     <div className="shadow p-4 mt-4">
 			<h3>Add an automobile to inventory</h3>
+      {message && <div className="alert alert-success mt-3">{message}</div>}
       <form id="create-salesperson-form" onSubmit={handleSubmit}>
         <div className="form-floating mb-2">
           <input
@@ -114,6 +117,7 @@ function AddAutomobile() {
             onChange={handleChangeModel}
           >
             <option value="">Choose a model</option>
+         
             {models &&
               models.map((car) => {
                 return (

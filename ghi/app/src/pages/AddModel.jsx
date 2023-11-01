@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 
 function AddModel() {
   const [ manufacturers, setManufacturers ] = useState("");
-
+  const [ message, setMessage ] = useState("")
   const [ name, setName ] = useState("");
   const [ pictureUrl, setPictureUrl ] = useState("");
   const [ manufacturer, setManufacturer ] = useState("");
@@ -35,9 +35,9 @@ function AddModel() {
     const data = {};
     data.name = name;
     data.picture_url = pictureUrl;
-    data.manufacturer = manufacturer;
+    data.manufacturer_id = manufacturer;
 
-    const url = "http://localhost:8100/api/manufacturers/";
+    const url = "http://localhost:8100/api/models/";
     const fetchConfig = {
 			method: 'post',
 			body: JSON.stringify(data),
@@ -55,14 +55,18 @@ function AddModel() {
       setName("");
       setPictureUrl("");
       setManufacturer("");
+      setMessage("Success, you just created a car model")
+      
     }
   }
 
   return (
     <div className="shadow p-4 mt-4">
 			<h3>Create a Vehicle Model</h3>
+      {message && <div className="alert alert-success mt-3">{message}</div>}
       <form id="create-salesperson-form" onSubmit={handleSubmit}>
         <div className="form-floating mb-2">
+
           <input
             onChange={handleChangeName}
             value={name}
@@ -77,14 +81,14 @@ function AddModel() {
         <div className="form-floating mb-2">
           <input
             onChange={handleChangePictureUrl}
-            value={name}
+            value={pictureUrl}
             className="form-control"
             required
             type="text"
-            name="name"
-            id="name"
+            pictureUrl="pictureUrl"
+            id="pictureUrl"
           />
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">Picture Url</label>
         </div>
 
         <div className='mb-3'>
@@ -96,7 +100,8 @@ function AddModel() {
             className="form-select"
             onChange={handleChangeManufacturer}
           >
-            <option value="">Choose an automobile</option>
+            <option value="">Choose an manufacturer</option>
+          
             {manufacturers &&
               manufacturers.map((company) => {
                 return (

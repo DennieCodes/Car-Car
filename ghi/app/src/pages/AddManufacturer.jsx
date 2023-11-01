@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 
 function AddManufacturer() {
   const [ name, setName ] = useState("");
-
+  const [message, setMessage] = useState("")
   const handleChangeName = (e) => setName(e.target.value);
 
   const handleSubmit = async (e) => {
@@ -24,14 +24,15 @@ function AddManufacturer() {
     if (response.ok) {
       const newManufacturer = await response.json();
       console.log(newManufacturer);
-
       setName("");
+      setMessage("Success! you created a manufacturer")
     }
   }
 
   return (
     <div className="shadow p-4 mt-4">
 			<h3>Add a Manufacturer</h3>
+      {message && <div className="alert alert-success mt-3">{message}</div>} 
       <form id="create-salesperson-form" onSubmit={handleSubmit}>
         <div className="form-floating mb-2">
           <input

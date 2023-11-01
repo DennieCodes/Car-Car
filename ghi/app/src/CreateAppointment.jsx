@@ -8,6 +8,7 @@ const CreateAppointment = () => {
     const [reason, setReason] = useState('')
     const [tech, setTech] = useState('')
     const [technicians, setTechnicians] = useState([])
+    const [message, setMessage] = useState('');
   
     useEffect(() => {
         const technicianUrl = 'http://localhost:8080/api/technicians/'
@@ -52,6 +53,7 @@ const CreateAppointment = () => {
           setDate_Time('')
           setReason('')
           setTech('')
+          setMessage("Success! Your appointment is set.") // Set the success message here
       })
       .catch(e => console.log('error: ', e));
 }
@@ -82,9 +84,8 @@ const handleTechChange = (event) => {
             <div className="offset-3 col-6">
               <div className="shadow p-4 mt-4 forms">
                 <h1 className='large-heading-dark'>Create Service Appointment</h1>
+                {message && <div className="alert alert-success mt-3">{message}</div>} {/* Display success message here */}
                 <form onSubmit={handleSubmit} id="create-Appointment-form">
-  
-  
                   <div className="form-floating mb-3">
                     <input
                     value={vin}
