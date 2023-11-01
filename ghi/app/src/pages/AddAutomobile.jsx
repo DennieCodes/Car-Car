@@ -64,6 +64,8 @@ function AddAutomobile() {
   }
 
   return (
+    <div className="row">
+    <div className="offset-3 col-6">
     <div className="shadow p-4 mt-4">
 			<h1>Add an automobile to inventory</h1>
       {message && <div className="alert alert-success mt-3">{message}</div>}
@@ -135,6 +137,8 @@ function AddAutomobile() {
         <button className='mt-3 btn btn-primary'>Create car model</button>
       </form>
     </div>
+  </div>
+  </div>
   )
 }
 
