@@ -8,6 +8,9 @@
 * Anthony Spence - Service microservice
 * Dennie Chan - Sales microservice
 
+### Trello Kanban Planning Board:
+[Project Beta Trello Board](https://trello.com/b/LAx76yAu/project-beta)
+
 ## Steps to Run Project
 ```
 1. Fork the project located at  https://gitlab.com/DennieCodes/project-beta
